@@ -14,10 +14,14 @@
     </ul>
 
     <ul class="nav navbar-nav ml-auto">
-    
-      {% if request.user.is_authenticated%}
-        <a class="nav-link" href="{% url 'logout' %}"><span class="fas fa-user"></span> Wyloguj</a>
 
+      {% if user.is_authenticated%}
+        <li>
+          <a class="nav-link" href=""><span class="fas fa-user"></span> Moje Konto</a>
+        </li>
+        <li>
+          <a class="nav-link" href="{% url 'logout' %}"><span class="fas fa-sign-out-alt"></span> Wyloguj</a>
+        </li>
       {% else %}
         <li class="nav-item">
           <a class="nav-link" href="/accounts/register"><span class="fas fa-user"></span> Rejestracja</a>
