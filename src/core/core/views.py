@@ -13,14 +13,14 @@ def login(request):
     context = {
         'title':'Logowanie'
     }
-    return render(request, 'user/login.html', context)
+    return render(request, 'register/login.html', context)
 
 
 def register(request):
     context = {
         'title':'Rejestracja'
     }
-    return render(request, 'user/register.html', context)
+    return render(request, 'register/register.html', context)
 
 
 def account(request):
