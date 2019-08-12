@@ -14,12 +14,17 @@
     </ul>
 
     <ul class="nav navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="/accounts/register"><span class="fas fa-user"></span> Rejestracja</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/accounts/login/"><span class="fas fa-sign-in-alt"></span> Logowanie</a>
-      </li>
+      {% if request.user.is_authenticated%}
+        <a class="nav-link" href="{% url 'logout' %}"><span class="fas fa-user"></span> Wyloguj</a>
+      {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="/accounts/register"><span class="fas fa-user"></span> Rejestracja</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/accounts/login/"><span class="fas fa-sign-in-alt"></span> Logowanie</a>
+        </li>
+      {% endif %}
+      
     </ul>
   </div>
 </nav>
