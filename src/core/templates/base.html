@@ -13,11 +13,11 @@
   </head>
 
   <body>
-
+    {% include 'navbar.html' %}
     <div class = 'container-fluid'>
         {% block content %}{% endblock  %}
     </div>
-
+    {% include 'footer.html' %}
   </body>
 
 </html>
