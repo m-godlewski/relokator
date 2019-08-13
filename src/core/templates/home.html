@@ -10,5 +10,14 @@
         <p>You are not logged in</p>
         <a href="{% url 'login' %}">login</a>
     {% endif %}
+    {% include 'search.html' %}
 
+    <hr>
+    
+    <div class='row'>
+        {% for object in qs %}
+            {% include 'adverts/adverts-inline.html' with advert=object truncate=True detail=False%}
+        {% endfor %}
+    </div>
+    
 {% endblock  %}
