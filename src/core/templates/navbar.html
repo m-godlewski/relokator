@@ -20,14 +20,17 @@
           <a class="nav-link" href=""><span class="fas fa-user"></span> Moje Konto</a>
         </li>
         <li>
+          <a class="nav-link" href=""><span class="fas fa-plus"></span> Dodaj ogłoszenie</a>
+        </li>
+        <li>
           <a class="nav-link" href="{% url 'logout' %}"><span class="fas fa-sign-out-alt"></span> Wyloguj</a>
         </li>
       {% else %}
         <li class="nav-item">
-          <a class="nav-link" href="/accounts/register"><span class="fas fa-user"></span> Rejestracja</a>
+          <a class="nav-link" href="/accounts/register/"><span class="fas fa-user"></span> Dołącz teraz</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/accounts/login/"><span class="fas fa-sign-in-alt"></span> Logowanie</a>
+          <a class="nav-link" href="/accounts/login/"><span class="fas fa-sign-in-alt"></span> Zaloguj się</a>
         </li>
       {% endif %}
 
