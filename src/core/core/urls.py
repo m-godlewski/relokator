@@ -20,10 +20,15 @@ from .views import (
     home
 )
 
+from adverts.views import (
+    advert_create_view
+)
+
 
 urlpatterns = [
     path('', home),
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')), # sign in
-    path('accounts/', include('django.contrib.auth.urls')) # login
+    path('accounts/', include('django.contrib.auth.urls')), # login
+    path('adverts/', advert_create_view)
 ]
