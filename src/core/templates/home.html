@@ -8,12 +8,14 @@
         Hi {{ user.username }}!
     {% else %}
         <p>You are not logged in</p>
-        <a href="{% url 'login' %}">login</a>
     {% endif %}
+    
+    <!-- Search bar -->
     {% include 'search.html' %}
 
     <hr>
-    
+
+    <!-- Adverts -->    
     <div class='row'>
         {% for object in qs %}
             {% include 'adverts/adverts-inline.html' with advert=object truncate=True detail=False%}
