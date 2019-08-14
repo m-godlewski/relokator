@@ -16,13 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from .views import (
-    home
-)
-
-from adverts.views import (
-    advert_create_view
-)
+from .views import home
+from adverts.views import advert_create_view
+from searches.views import search_view
 
 
 urlpatterns = [
@@ -30,5 +26,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')), # sign in
     path('accounts/', include('django.contrib.auth.urls')), # login
-    path('adverts/', advert_create_view)
+    path('adverts/', advert_create_view),
+    path('search/', search_view)
 ]

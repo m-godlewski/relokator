@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class = 'row'>
+
+    <div class = 'col-12 col-8 mx-auto'>
+        {% if query%}
+            <p class='lead'>You searched for {{query}}</p>
+        {% else %}
+            <p class='lead'>Can't search None </p>
+        {% endif %}
+        
+        {% for advert in adverts_list %}
+            {% include 'adverts/adverts-inline.html' with advert=advert truncate=True details=False%}
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock  %}
