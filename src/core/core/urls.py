@@ -24,8 +24,8 @@ from searches.views import search_view
 urlpatterns = [
     path('', home),
     path('admin/', admin.site.urls),
-    path('accounts/', include('accounts.urls')), # sign in
-    path('accounts/', include('django.contrib.auth.urls')), # login
-    path('adverts/', advert_create_view),
+    path('accounts/', include('django.contrib.auth.urls')), # login (django auth app)
+    path('accounts/', include('accounts.urls')), # sign in (accounts app)
+    path('adverts/new', advert_create_view),
     path('search/', search_view)
 ]

@@ -12,7 +12,5 @@ def advert_create_view(request):
         form.save()
         form = AdvertModelForm()
     template_name = 'adverts/adverts-create.html'
-    context = {
-        "form":form
-    }
+    context = {"form" : form}
     return render(request, template_name, context)

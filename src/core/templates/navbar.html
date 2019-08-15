@@ -4,36 +4,37 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
-<nav class="navbar navbar-expand-md bg-ligt navbar-light sticky-top">
-  <a class="navbar-brand" href="/">Relokator</a>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
+  <a class="navbar-brand" style="padding:1%;%" href="/">Relokator</a>
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb" aria-expanded="true">
     <span class="navbar-toggler-icon"></span>
   </button>
+
   <div id="navb" class="navbar-collapse collapse hide">
+
     <ul class="navbar-nav">
     </ul>
 
     <ul class="nav navbar-nav ml-auto">
-
       {% if user.is_authenticated%}
-        <li>
-          <a class="nav-link" href="/"><span class="fas fa-user"></span> Moje Konto</a>
-        </li>
-        <li>
-          <a class="nav-link" href="/adverts/"><span class="fas fa-plus"></span> Dodaj ogłoszenie</a>
-        </li>
-        <li>
-          <a class="nav-link" href="{% url 'logout' %}"><span class="fas fa-sign-out-alt"></span> Wyloguj</a>
-        </li>
+          <li>
+            <a class="nav-link" href="/accounts/{{request.user}}"><span class="fas fa-user"></span> {{user.username}}</a>
+          </li>
+          <li>
+            <a class="nav-link" href="/adverts/new"><span class="fas fa-plus"></span> Dodaj ogłoszenie</a>
+          </li>
+          <li>
+            <a class="nav-link" href="{% url 'logout' %}"><span class="fas fa-sign-out-alt"></span> Wyloguj</a>
+          </li>
       {% else %}
-        <li class="nav-item">
-          <a class="nav-link" href="/accounts/register/"><span class="fas fa-user"></span> Dołącz teraz</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/accounts/login/"><span class="fas fa-sign-in-alt"></span> Zaloguj się</a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/accounts/register/"><span class="fas fa-user"></span> Zarejestruj się</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/accounts/login/"><span class="fas fa-sign-in-alt"></span> Zaloguj się</a>
+          </li>
       {% endif %}
-
     </ul>
+
   </div>
 </nav>
