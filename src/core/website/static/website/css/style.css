@@ -1,0 +1,13 @@
+.searchbar-div{
+    width: 100%;
+    height: 500px;
+    /* background-image: url("/static/website/images/search-panel-background.jpeg"); */
+}
+
+.searchbar{
+    width: 40%;
+    height: 30%;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
