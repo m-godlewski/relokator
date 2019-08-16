@@ -1,8 +1,8 @@
 from django.urls import path
 from .views import(
-    advert_list_view
+    advert_detail_view
 )
 
 urlpatterns = [
-    path('', advert_list_view)
+    path('<str:advert_id>/', advert_detail_view)
 ]

@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 from .views import home
+
 from adverts.views import advert_create_view
 from searches.views import search_view
 
@@ -27,5 +28,6 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')), # login (django auth app)
     path('accounts/', include('accounts.urls')), # sign in (accounts app)
     path('adverts/new', advert_create_view),
+    path('adverts/', include('adverts.urls')),
     path('search/', search_view)
 ]
