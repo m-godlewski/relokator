@@ -3,11 +3,13 @@
 {% block title %}Logowanie{% endblock%}
 
 {% block content %}
-<br>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Zaloguj się</button>
-</form>
+
+<div class="searchbar">
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Zaloguj się</button>
+  </form>
+</div>
 
 {% endblock  %}

@@ -10,7 +10,7 @@ from adverts.models import Advert
 class Registration(generic.CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('login')
-    template_name = 'register.html'
+    template_name = 'accounts/account_register.html'
 
 
 def account_info(request, account_id):
