@@ -12,10 +12,7 @@ class AdvertQuerySet(models.QuerySet):
         lookup = (
                     Q(title__icontains=query) |
                     Q(content__icontains=query) |
-                    Q(slug__icontains=query) |
-                    Q(user__first_name__icontains=query) |
-                    Q(user__last_name__icontains=query) |
-                    Q(user__username__icontains=query)
+                    Q(city__icontains=query)
                     )
         return self.filter(lookup)
 
@@ -35,7 +32,8 @@ class Advert(models.Model):
     user = models.ForeignKey(User, default=1, null=True, on_delete=models.SET_NULL)
     title = models.CharField(max_length=120)
     content = models.TextField(null=True, blank=True)
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(unique=True, blank=True)
     create_date = models.DateTimeField(default=timezone.now)
+    city = models.CharField(max_length=100, blank=False)
 
     objects = AdvertManager()

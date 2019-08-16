@@ -3,11 +3,7 @@
         <div class = 'card-body'>
             <a href="/adverts/{{advert.id}}"><h5 class = 'card-title'>{{advert.title}}</h5></a>
             <p class = 'card-text'>
-                {% if truncate %}
-                    {{ advert.content|linebreaks|truncatewords:30}}
-                {% else %}
-                    {{ advert.content|linebreaks}}           
-                {% endif %}
+                <h5>{{advert.city}}</h5>
             </p>
         </div>
     </div>

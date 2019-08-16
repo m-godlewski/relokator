@@ -1,7 +1,12 @@
+*{
+    font-family: 'Kanit', sans-serif;
+}
+
 .searchbar-div{
     width: 100%;
     height: 500px;
     /* background-image: url("/static/website/images/search-panel-background.jpeg"); */
+    margin:0;
 }
 
 .searchbar{

@@ -3,10 +3,17 @@
 {% block title %}Dodawanie ogłoszenia{% endblock  %}
 
 {% block content %}
-    
-<form method="POST" action="">{% csrf_token %}
-    {{form.as_p}}
-    <button type="submit" href="{% url 'login' %}">Dodaj ogłoszenie</button>
-</form>
+
+<div class="card" style="margin:5%;">
+    <div class="card-body">
+        <center>
+        <form method="POST" action="" style="margin-top:2%;">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit" href="{% url 'login' %}">Dodaj ogłoszenie</button>
+        </form>
+        </center>
+    </div>
+</div>
 
 {% endblock  %}
