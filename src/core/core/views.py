@@ -9,4 +9,4 @@ def home(request):
     context = {
         'qs':qs
     }
-    return render(request, 'home.html', context)
+    return render(request, 'website/home.html', context)
