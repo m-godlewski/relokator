@@ -5,6 +5,9 @@
             <p class = 'card-text'>
                 <h5>{{advert.city}}</h5>
             </p>
+            {% if advert.image %}
+                <img src="{{advert.image.url}}" width="40%" height="auto" align="right">
+            {% endif %}
         </div>
     </div>
 </div>

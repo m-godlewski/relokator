@@ -32,8 +32,9 @@ class Advert(models.Model):
     user = models.ForeignKey(User, default=1, null=True, on_delete=models.SET_NULL)
     title = models.CharField(max_length=120)
     content = models.TextField(null=True, blank=True)
-    slug = models.SlugField(unique=True, blank=True)
+    slug = models.SlugField(null=True, blank=True)
     create_date = models.DateTimeField(default=timezone.now)
     city = models.CharField(max_length=100, blank=False)
+    image = models.ImageField(upload_to='images/', blank=True, null=True)
 
     objects = AdvertManager()
