@@ -9,9 +9,8 @@
         {% include 'website/searchbar.html' %}
     </div>
 
-    <hr>
-
-    <!-- Adverts -->    
+    <!-- Adverts -->
+    <h2 style="padding-left:1%">Najnowsze ogłoszenia</h2>
     <div class='row'>
         {% for object in qs %}
             {% include 'adverts/adverts-inline.html' with advert=object truncate=True detail=False%}

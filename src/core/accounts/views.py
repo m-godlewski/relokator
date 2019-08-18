@@ -15,11 +15,18 @@ class Registration(generic.CreateView):
 
 def account_info(request, account_id):
     template_name = 'accounts/account_info.html'
+    context = {
+        'username':str(request.user),
+    }
+    return render(request, template_name, context) 
+
+
+def account_adverts(request, account_id):
+    template_name = 'accounts/account_adverts.html'
     if request.user.is_authenticated:
         qs = Advert.objects.filter(Q(user=request.user))
     context = {
-        'title':str(request.user),
+        'username':str(request.user),
         'object_list': qs
     }
     return render(request, template_name, context) 
-    

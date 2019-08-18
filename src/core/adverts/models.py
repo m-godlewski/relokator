@@ -38,3 +38,12 @@ class Advert(models.Model):
     image = models.ImageField(upload_to='images/', blank=True, null=True)
 
     objects = AdvertManager()
+
+    def get_absolute_url(self):
+        return f"/adverts/{self.id}"
+
+    def get_edit_url(self):
+        return f"{self.get_absolute_url()}/edit"
+
+    def get_delete_url(self):
+        return f"{self.get_absolute_url()}/delete"

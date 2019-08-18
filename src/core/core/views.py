@@ -5,7 +5,7 @@ from adverts.models import Advert
 
 
 def home(request):
-    qs = Advert.objects.all()
+    qs = Advert.objects.all()[:8]
     context = {
         'qs':qs
     }
