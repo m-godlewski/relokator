@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'website',
     'adverts',
-    'searches'
+    'searches',
+    'maps'
 ]
 
 MIDDLEWARE = [
