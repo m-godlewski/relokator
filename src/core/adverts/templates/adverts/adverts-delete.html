@@ -1,0 +1,21 @@
+{% extends 'website/base.html' %}
+
+{% block title %}Usuwanie ogłoszenia{% endblock  %}
+
+{% block content %}
+
+<div class="card" style="margin:5%;">
+    <div class="card-body">
+        <center>
+        <h3>Czy jesteś pewien że chcesz usunąć to ogłoszenie?</h3>
+        <h5 style="color:red">Tej akcji nie będzie można cofnąć!</h5>
+        <br>
+        <form method='POST'>{% csrf_token %}
+            <button class='btn btn-danger'>Tak</button>
+            <a class='btn btn-info' href="/accounts/{{request.user}}/adverts">Nie</a>
+        </form>
+        </center>
+    </div>
+</div>
+
+{% endblock  %}

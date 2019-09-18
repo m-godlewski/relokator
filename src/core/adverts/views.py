@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Q
 
 from .models import Advert
@@ -36,7 +36,7 @@ def advert_edit_view(request, advert_id):
     form = AdvertModelForm(request.POST or None, instance=obj)
     if form.is_valid():
         form.save()
-    template_name = 'adverts/advert-edit.html'
+    template_name = 'adverts/adverts-edit.html'
     context = {
         "form":form,
         "title":'Edytujesz ogłoszenie {}'.format(str(obj.title))
@@ -45,4 +45,10 @@ def advert_edit_view(request, advert_id):
 
 @login_required
 def advert_delete_view(request, advert_id):
-    pass
+    obj = get_object_or_404(Advert, id=advert_id)
+    template_name ='adverts/adverts-delete.html'
+    if request.method == 'POST':
+        obj.delete()
+        return redirect(f'/accounts/{request.user}/adverts')
+    context = {"object":obj}
+    return render(request, template_name, context)
