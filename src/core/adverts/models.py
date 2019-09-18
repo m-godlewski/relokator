@@ -35,6 +35,7 @@ class Advert(models.Model):
     slug = models.SlugField(null=True, blank=True)
     create_date = models.DateTimeField(default=timezone.now)
     city = models.CharField(max_length=100, blank=False)
+    address = models.CharField(max_length=100, blank=False)
     image = models.ImageField(upload_to='images/', blank=True, null=True)
 
     objects = AdvertManager()
