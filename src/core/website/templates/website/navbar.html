@@ -17,7 +17,7 @@
     <ul class="nav navbar-nav ml-auto" style="font-size:20px;">
       {% if user.is_authenticated%}
           <li class="nav-item">
-            <a class="nav-link" href="/accounts/{{request.user}}"><span class="fas fa-user"></span> {{user.username}}</a>
+            <a class="nav-link" href="/accounts/{{request.user}}/info"><span class="fas fa-user"></span> {{user.username}}</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/adverts/new"><span class="fas fa-plus"></span> Dodaj ogłoszenie</a>
