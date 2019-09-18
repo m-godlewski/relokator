@@ -5,15 +5,19 @@
 {% block content %}
 <br>
 
-  {% if request.user.is_authenticated%}
-    <h2>Już jesteś zarejestrowany</h2>
-  {% else %}
-    <h2>Rejestracja</h2>
-      <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-      <button type="submit">Zarejestruj się</button>
-    </form>
-  {% endif %}
+<div class="login-panel-div">
+  <div class="login-form-div">
+    {% if request.user.is_authenticated%}
+      <h2>Już jesteś zarejestrowany</h2>
+    {% else %}
+      <h2>Rejestracja</h2>
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+        <button type="submit">Zarejestruj się</button>
+      </form>
+    {% endif %}
+    </div>
+</div>
 
 {% endblock  %}

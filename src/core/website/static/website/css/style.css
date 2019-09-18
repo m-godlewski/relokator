@@ -16,3 +16,17 @@
     position: absolute;
     top: 0; left: 0; bottom: 0; right: 0;
 }
+
+.login-panel-div{
+    width: 100%;
+    height: 500px;
+    margin: 0;
+}
+
+.login-form-div{
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
