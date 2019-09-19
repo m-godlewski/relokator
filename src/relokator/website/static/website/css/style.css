@@ -5,7 +5,7 @@
 .searchbar-div{
     width: 100%;
     height: 500px;
-    /* background-image: url("/static/website/images/search-panel-background.jpeg"); */
+    /* background: url("/static/website/images/search-panel-background.jpeg") no-repeat fixed center; */
     margin:0;
 }
 
