@@ -29,11 +29,30 @@ class AdvertManager(models.Manager):
 
 
 class Advert(models.Model):
+    '''Model ogłoszenia
+
+    user [id] - użytkownik wystawiający ogłoszenie
+    title [str] - tytuł ogłoszenia
+    content [str] - opis ogłoszenia]
+    category [str] - kategoria ogłoszenia (dom, miekszanie lub pokój)
+    create_date [datetime] - data wystawienia ogłoszenia
+    city [str] - miasto
+    address [str] - adres (ulica i numer mieszkania/domu)
+    prize [str] - cena
+    image [imagefield] - zdjęcie #TODO dodaj możliwość dodania kilku zdjęć
+    '''
+
+    CATEGORY_CHOICES = (
+        ('D', 'Dom'),
+        ('M', 'Mieszkanie'),
+        ('P', 'Pokój')
+    )
 
     slug = models.SlugField(null=True, blank=True)
     user = models.ForeignKey(User, default=1, null=True, on_delete=models.SET_NULL)
     title = models.CharField(max_length=120)
     content = models.TextField(null=True, blank=True)
+    category = models.CharField(max_length=1, choices=CATEGORY_CHOICES)
     create_date = models.DateTimeField(default=timezone.now)
     city = models.CharField(max_length=100, blank=False)
     address = models.CharField(max_length=100, blank=False)
