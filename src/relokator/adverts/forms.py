@@ -7,9 +7,10 @@ class AdvertCreateForm(forms.Form):
     content = forms.CharField(widget=forms.Textarea, required=True)
     city = forms.CharField(required=True)
     address = forms.CharField(required=True)
+    prize = forms.CharField(required=True)
 
 
 class AdvertModelForm(forms.ModelForm):
     class Meta:
         model = Advert
-        fields = ['title', 'content', 'city', 'address', 'image']
+        fields = ['title', 'content', 'city', 'address', 'prize', 'image']

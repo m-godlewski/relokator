@@ -46,6 +46,7 @@ def advert_edit_view(request, advert_id):
     }
     return render(request, template_name, context)
 
+
 @login_required
 def advert_delete_view(request, advert_id):
     obj = get_object_or_404(Advert, id=advert_id)

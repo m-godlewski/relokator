@@ -37,12 +37,10 @@ class Advert(models.Model):
     create_date = models.DateTimeField(default=timezone.now)
     city = models.CharField(max_length=100, blank=False)
     address = models.CharField(max_length=100, blank=False)
+    prize = models.CharField(max_length=10, blank=False)
     image = models.ImageField(upload_to='images/', blank=True, null=True)
 
     objects = AdvertManager()
-
-    def __str__(self):
-        return f"{self.address} {self.city}"
 
     def get_absolute_url(self):
         return f"/adverts/{self.id}"
