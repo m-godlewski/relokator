@@ -1,28 +1,22 @@
 from django.db import models
 
 
-class GoogleMapLocation:
-    
+class GoogleMaps:
     google_maps_url = "http://maps.google.com/maps"
 
-    def __init__(self, address, city):
-        self.city = city
-        self.address = address
-    
-    def __str__(self):
-        return f'{self.address} {self.city}'
 
-    def preprocess_address(self):
-        address = self.address
-        city = self.city
-        
-        if ' ' in address:
-            address = address.replace(' ', '+')
-        if ' ' in city:
-            address = address.replace(' ', '+')
-        
-        return address, city
+class GoogleMapsLocation(GoogleMaps):
+    
+    def __init__(self, address, city):
+        self.address = address
+        self.city = city
+
+    def preprocess_location_string(self):
+        if ' ' in self.address:
+            self.address.replace(' ', '+')
+        if ' ' in self.city:
+            self.city.replace(' ', '+')
 
     def get_location_url(self):
-        address, city = self.preprocess_address()
-        return f'{GoogleMapLocation.get_google_maps_url}?q={address}+{city}&output=embed'
+        self.location_url = f'{self.google_maps_url}?q={self.address}+{self.city}&output=embed'
+        return self.location_url

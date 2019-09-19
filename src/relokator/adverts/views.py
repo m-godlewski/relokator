@@ -4,15 +4,18 @@ from django.db.models import Q
 
 from .models import Advert
 from .forms import AdvertModelForm
+from maps.models import GoogleMapsLocation
 
 
 def advert_detail_view(request, advert_id):
     template_name = 'adverts/adverts-detail.html'
     qs = Advert.objects.filter(Q(id=advert_id))
     qs = qs[0]
+    qs_maps_url = GoogleMapsLocation(qs.address, qs.city)
     context = {
         'title':str(qs.title),
-        'advert': qs
+        'advert': qs,
+        'advert_maps_url': qs_maps_url.get_location_url()
     }
     return render(request, template_name, context) 
 

@@ -3,8 +3,6 @@ from django.db import models
 from django.db.models import Q
 from django.utils import timezone
 
-from maps.models import GoogleMapLocation
-
 User = settings.AUTH_USER_MODEL
 
 
@@ -43,11 +41,8 @@ class Advert(models.Model):
 
     objects = AdvertManager()
 
-    def get_address(self):
-        return f'{self.user}'
-
-    def get_city(self):
-        return f'{self.city}'
+    def __str__(self):
+        return f"{self.address} {self.city}"
 
     def get_absolute_url(self):
         return f"/adverts/{self.id}"
@@ -57,6 +52,3 @@ class Advert(models.Model):
 
     def get_delete_url(self):
         return f"{self.get_absolute_url()}/delete"
-
-    # location = GoogleMapLocation(get_address(). get_city())
-    # google_maps_location_url = google_maps_location.get_location_url()
