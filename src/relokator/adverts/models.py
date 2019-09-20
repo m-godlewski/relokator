@@ -8,11 +8,14 @@ User = settings.AUTH_USER_MODEL
 
 class AdvertQuerySet(models.QuerySet):
 
-    def search(self, query):
+    def search(self, query, parameters):
         lookup = (
                     Q(title__icontains=query) |
                     Q(content__icontains=query) |
-                    Q(city__icontains=query)
+                    Q(city__icontains=query) &
+                    Q(category__icontains=parameters['category']) &
+                    Q(advert_type__icontains=parameters['advert_type']) &
+                    # Q(furnished__icontains=parameters['furnished'])
                     )
         return self.filter(lookup)
 
@@ -22,10 +25,10 @@ class AdvertManager(models.Manager):
     def get_queryset(self):
         return AdvertQuerySet(self.model, using=self._db)
 
-    def search(self, query=None):
+    def search(self, query=None, parameters=None):
         if query is None:
             return self.get_queryset().none()
-        return self.get_queryset().search(query)
+        return self.get_queryset().search(query, parameters)
 
 
 class Advert(models.Model):
