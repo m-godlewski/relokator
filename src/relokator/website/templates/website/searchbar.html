@@ -1,6 +1,29 @@
 <div class="searchbar">
   <form class="form-inline my-2 my-lg-0" action='/search/'>
+
+    {# text search input #}
     <input class="form-control mr-sm-2" type="search" name='q' placeholder="" aria-label="Search" style="width:70%;">
+
+    {# search button #}
     <button class="btn btn-outline-primary my-2 my-sm-0" type="submit"style="width:25%;">Szukaj</button>
+
+    <br><br><br>
+
+    {# Advert.category #}
+    <select name='category'>
+      <option value="Dom">Dom</option>
+      <option value="Mieszkanie">Mieszkanie</option>
+      <option value="Pokój">Pokój</option>
+    </select>
+
+    {# Adver.advert_type #}
+    <select name='type'>
+      <option value="Wynajem">Wynajem</option>
+      <option value="Sprzedaż">Sprzedaż</option>
+    </select>
+
+    {# Advert.furnished #}
+    <input type="checkbox" name="furnished" value="furnished">Umeblowanie<br>
+
   </form>
 </div>
