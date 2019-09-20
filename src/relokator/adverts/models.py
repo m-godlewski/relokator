@@ -14,7 +14,7 @@ class AdvertQuerySet(models.QuerySet):
                     Q(content__icontains=query) |
                     Q(city__icontains=query) &
                     Q(category__icontains=parameters['category']) &
-                    Q(advert_type__icontains=parameters['advert_type']) &
+                    Q(advert_type__icontains=parameters['advert_type'])
                     # Q(furnished__icontains=parameters['furnished'])
                     )
         return self.filter(lookup)
