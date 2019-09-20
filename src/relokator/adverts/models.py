@@ -35,8 +35,9 @@ class Advert(models.Model):
     title [str] - tytuł ogłoszenia
     content [str] - opis ogłoszenia]
     category [str] - kategoria ogłoszenia (dom, miekszanie lub pokój)
-    type [str] - typ ogłoszenia (wynajem, sprzedaż)
+    advert_type [str] - typ ogłoszenia (wynajem, sprzedaż)
     create_date [datetime] - data wystawienia ogłoszenia
+    furnished [boolean] - umeblowanie
     city [str] - miasto
     address [str] - adres (ulica i numer mieszkania/domu)
     prize [str] - cena
@@ -61,6 +62,7 @@ class Advert(models.Model):
     category = models.CharField(max_length=10, choices=CATEGORY_CHOICES)
     advert_type = models.CharField(max_length=10, choices=TYPE_CHOICES)
     create_date = models.DateTimeField(default=timezone.now)
+    furnished = models.BooleanField(default=False)
     city = models.CharField(max_length=100, blank=False)
     address = models.CharField(max_length=100, blank=False)
     prize = models.CharField(max_length=10, blank=False)

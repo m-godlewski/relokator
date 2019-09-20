@@ -9,10 +9,11 @@ class AdvertCreateForm(forms.Form):
     address = forms.CharField(required=True)
     category = forms.ChoiceField(choices=Advert.CATEGORY_CHOICES, initial='Brak', required=True)
     advert_type = forms.ChoiceField(choices=Advert.TYPE_CHOICES, initial='Brak', required=True)
+    furnished = forms.BooleanField(initial=False)
     prize = forms.CharField(required=True)
 
 
 class AdvertModelForm(forms.ModelForm):
     class Meta:
         model = Advert
-        fields = ['title', 'content', 'city', 'address', 'category', 'advert_type', 'prize', 'image']
+        fields = ['title', 'content', 'city', 'address', 'category', 'advert_type', 'furnished', 'prize', 'image']
