@@ -17,6 +17,8 @@ def search_view(request):
 
     if request.user.is_authenticated:
         user = request.user
+    else:
+        user = None
 
     context = {
         'query' : query,
