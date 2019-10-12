@@ -10,12 +10,13 @@ class AdvertQuerySet(models.QuerySet):
 
     def search(self, query, parameters):
         lookup = (
-                    Q(title__icontains=query) |
-                    Q(content__icontains=query) |
                     Q(city__icontains=query) &
-                    Q(category__icontains=parameters['category']) &
-                    Q(advert_type__icontains=parameters['advert_type'])
-                    # Q(furnished__icontains=parameters['furnished'])
+                    (
+                        Q(category__icontains=parameters['category']) 
+                        &
+                        Q(advert_type__icontains=parameters['advert_type'])
+                    ) &
+                    Q(furnished__icontains=parameters['furnished'])
                     )
         return self.filter(lookup)
 
