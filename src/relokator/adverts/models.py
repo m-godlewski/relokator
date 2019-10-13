@@ -43,7 +43,7 @@ class Advert(models.Model):
     furnished [boolean] - umeblowanie
     city [str] - miasto
     address [str] - adres (ulica i numer mieszkania/domu)
-    price [str] - cena
+    price [int] - cena
     image [imagefield] - zdjęcie #TODO dodaj możliwość dodania kilku zdjęć
     '''
 
@@ -68,7 +68,7 @@ class Advert(models.Model):
     furnished = models.BooleanField(default=False, verbose_name='Umeblowanie')
     city = models.CharField(max_length=100, blank=False, verbose_name='Miasto')
     address = models.CharField(max_length=100, blank=False, verbose_name='Adres')
-    price = models.CharField(max_length=10, blank=False, verbose_name='Cena')
+    price = models.IntegerField(blank=False, verbose_name='Cena', default=1000)
     image = models.ImageField(upload_to='images/', blank=True, null=True, verbose_name='Zdjęcia')
 
     objects = AdvertManager()
