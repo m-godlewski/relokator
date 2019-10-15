@@ -12,12 +12,17 @@ class AdvertQuerySet(models.QuerySet):
         lookup = (
                     Q(city__icontains=query) &
                     (
-                        Q(category__icontains=parameters['category']) 
+                        Q(category__icontains=parameters['category'])
                         &
                         Q(advert_type__icontains=parameters['advert_type'])
                     )
                     )
-        return self.filter(lookup, furnished=parameters['furnished'])
+        return self.filter(
+            lookup,
+            furnished = parameters['furnished'],
+            price__gte = parameters['price_min'],
+            price__lte = parameters['price_max']
+        )
 
 
 class AdvertManager(models.Manager):
@@ -68,7 +73,7 @@ class Advert(models.Model):
     furnished = models.BooleanField(default=False, verbose_name='Umeblowanie')
     city = models.CharField(max_length=100, blank=False, verbose_name='Miasto')
     address = models.CharField(max_length=100, blank=False, verbose_name='Adres')
-    price = models.IntegerField(blank=False, verbose_name='Cena', default=1000)
+    price = models.IntegerField(blank=False, null=False, verbose_name='Cena')
     image = models.ImageField(upload_to='images/', blank=True, null=True, verbose_name='Zdjęcia')
 
     objects = AdvertManager()

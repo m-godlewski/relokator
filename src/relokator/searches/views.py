@@ -8,6 +8,8 @@ def get_search_parameters(request):
     parameters['category'] = request.GET.get('category', None)
     parameters['advert_type'] = request.GET.get('advert_type', None)
     parameters['furnished'] = request.GET.get('furnished', False)
+    parameters['price_min'] = request.GET.get('price_min', 0)
+    parameters['price_max'] = request.GET.get('price_max', 0)
     return parameters
 
 

@@ -3,6 +3,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 from django.shortcuts import render
 from django.db.models import Q
+from django.contrib.auth.models import User
 
 from adverts.models import Advert
 
@@ -23,9 +24,8 @@ def account_info(request, account_id):
 
 def account_adverts(request, account_id):
     template_name = 'accounts/account_adverts.html'
-    if request.user.is_authenticated:
-        qs = Advert.objects.filter(Q(user=request.user)) # TODO not request user, but user profile
-
+    user = User.objects.get(username=account_id)
+    qs = Advert.objects.filter(Q(user=user))
     context = {
         'username': account_id,
         'object_list': qs
