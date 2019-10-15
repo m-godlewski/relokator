@@ -1,15 +1,22 @@
 from django.shortcuts import render
 from adverts.models import Advert
 from .models import SearchQuery
-
+import sys
 
 def get_search_parameters(request):
     parameters = {}
     parameters['category'] = request.GET.get('category', None)
     parameters['advert_type'] = request.GET.get('advert_type', None)
     parameters['furnished'] = request.GET.get('furnished', False)
+
     parameters['price_min'] = request.GET.get('price_min', 0)
+    if parameters['price_min'] == '':
+        parameters['price_min'] = 0
+
     parameters['price_max'] = request.GET.get('price_max', 0)
+    if parameters['price_max'] == '':
+        parameters['price_max'] = int(sys.maxsize) - 1
+
     return parameters
 
 

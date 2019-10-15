@@ -9,19 +9,14 @@ User = settings.AUTH_USER_MODEL
 class AdvertQuerySet(models.QuerySet):
 
     def search(self, query, parameters):
-        lookup = (
-                    Q(city__icontains=query) &
-                    (
-                        Q(category__icontains=parameters['category'])
-                        &
-                        Q(advert_type__icontains=parameters['advert_type'])
-                    )
-                    )
+        lookup = (Q(city__icontains=query))
         return self.filter(
             lookup,
             furnished = parameters['furnished'],
             price__gte = parameters['price_min'],
-            price__lte = parameters['price_max']
+            price__lte = parameters['price_max'],
+            category = parameters['category'],
+            advert_type = parameters['advert_type'],
         )
 
 
