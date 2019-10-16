@@ -3,20 +3,26 @@ from django.db import models
 from django.db.models import Q
 from django.utils import timezone
 
+
 User = settings.AUTH_USER_MODEL
 
 
 class AdvertQuerySet(models.QuerySet):
 
     def search(self, query, parameters):
-        lookup = (Q(city__icontains=query))
+        filters = {}
+        if parameters['category']:
+            filters['category'] = parameters['category']
+        if parameters['advert_type']:
+            filters['advert_type'] = parameters['advert_type']
+        if parameters['furnished']:
+            filters['furnished'] = parameters['furnished']
+ 
         return self.filter(
-            lookup,
-            furnished = parameters['furnished'],
+            **filters,
+            city = query,
             price__gte = parameters['price_min'],
-            price__lte = parameters['price_max'],
-            category = parameters['category'],
-            advert_type = parameters['advert_type'],
+            price__lte = parameters['price_max']
         )
 
 

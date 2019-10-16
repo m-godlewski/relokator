@@ -15,7 +15,7 @@
         <div class="form-group col-md-4">
           <label for="category">Kategoria</label>
           <select name='category' id="category">
-            <option disabled selected value>Wybierz</option>
+            <option selected value>Wszystkie</option>
             <option value="Dom">Dom</option>
             <option value="Mieszkanie">Mieszkanie</option>
             <option value="Pokój">Pokój</option>
@@ -25,13 +25,20 @@
         <div class="form-group col-md-4">
           <label for="advert_type">Typ</label>
           <select name='advert_type' id="advert_type">
-            <option disabled selected value>Wybierz</option>
+            <option selected value>Wszystkie</option>
             <option value="Wynajem">Wynajem</option>
             <option value="Sprzedaż">Sprzedaż</option>
           </select>
         </div>
         {# Advert.furnished #}
-        <input type="checkbox" name="furnished" value="True">Umeblowanie<br>
+        <div class="form-group col-md-4">
+          <label for="furnished">Umeblowanie</label>
+          <select name='furnished' id="furnished">
+            <option selected value>Wszystkie</option>
+            <option value="Tak">Tak</option>
+            <option value="Nie">Nie</option>
+          </select>
+        </div>
       </div>
     
     <div class="form-row" style="width:100%">
