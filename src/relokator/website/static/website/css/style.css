@@ -52,9 +52,52 @@
 
 #serchbar-main-input{
     width: 50%;
-    /* margin: auto; */
+    margin-left: 25%;
+    margin-top: 5%;
+    text-align: center;
+}
+
+#searchbar-row{
+    width: 100%;
+    margin: 2%;
 }
 
 #searchbar-search-button{
-    width: 10%
+    width: 70%;
+    margin-left: 15%;
+    margin-bottom: 5%;
+}
+
+
+
+/* ###################   ADVERTS   ################ */
+
+#advert-detail{
+    padding-top:4%;
+    padding-bottom: 4%;
+}
+
+#advert-title{
+    display: inline-block;
+}
+
+#advert-price{
+    float: right;
+    margin-right: 2%;
+}
+
+.advert-header{
+    display: inline-block;
+    text-align: center;
+    width: 32%
+}
+
+.advert-header-location{
+    display: inline-block;
+    text-align: center;
+    width: 45%
+}
+
+#google-maps-frame{
+    width: 100%;
 }

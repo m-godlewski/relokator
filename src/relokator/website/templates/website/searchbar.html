@@ -1,12 +1,17 @@
 <div class="searchbar">
+
   <form class="form-inline my-2 my-lg-0" action='/search/'>
 
-    {# text search input #}
-    <input id="serchbar-main-input" class="form-control mr-sm-2" type="search" name='q' placeholder="Podaj miejscowość" aria-label="Search">
 
     <div clas="row" style="width:100%">
-      {# Advert.category #}
-      <div class="form-row" style="width:100%">    
+
+      <div class="form-row">
+        {# text search input #}
+        <input id="serchbar-main-input" class="form-control mr-sm-2" type="search" name='q' placeholder="Podaj miejscowość" aria-label="Search">
+      </div>
+
+      {# Advert.category #} 
+      <div id="searchbar-row" class="form-row">    
         <div class="form-group col-md-4">
           <label for="category">Kategoria</label>
           <select name='category' id="category">
@@ -36,19 +41,21 @@
         </div>
       </div>
     
-    <div class="form-row" style="width:100%">
-      <div class="form-group col-md-6">
-        <label for="price_min">Cena minimalna</label>
-        <input type="text" class="form-control" id="price_min" name='price_min'>
-      </div>
+      {# Cena minimalna i maksymalna #}
+      <div id="searchbar-row" class="form-row">
+        <div class="form-group col-md-6">
+          <label for="price_min">Cena minimalna</label>
+          <input type="text" class="form-control" id="price_min" name='price_min'>
+        </div>
       <div class="form-group col-md-6">
         <label for="price_max">Cena maksymalna</label>
         <input type="text" class="form-control" id="price_max" name='price_max'>
       </div>
-    </div>
 
+    </div>
+  
     {# search button #}
-    <button id="searchbar-search-button" class="btn btn-outline-primary my-2 my-sm-0" type="submit">Szukaj</button>
+    <button id="searchbar-search-button" class="btn btn-outline-primary my-2 my-sm-0" type="submit">Szukał według Twoich preferencji</button>
 
   </form>
 </div>

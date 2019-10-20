@@ -4,29 +4,54 @@
 
 {% block content %}
 
-<br>
-<div class = 'col-12 col-md-6 mx-auto mb-2 mt-'>
+<div id="advert-detail" class = 'col-12 col-md-6 mx-auto mb-2 mt-'>
     <div class = 'card'>
         <div class = 'card-body'>
-            <h3 class = 'card-title'>{{advert.title}}</h3>
+            
+            <h3 id="advert-title" class='card-title'>{{advert.title}}</h3>
+            {% if advert.advert_type == "Wynajem" %}
+                <h4 id="advert-price"><b>{{advert.price}} PLN/miesięcznie</b></h6>
+            {% else %}
+                <h4 id="advert-price"><b>{{advert.price}} PLN</b></h6>
+            {% endif %}
+
             <hr>
-            <h4>{{advert.city}}</h4>
-            <h6>{{advert.address}}</h6>
-            <h4>{{advert.price}} PLN</h4>
-            <h4>{{advert.category}}</h4>
-            <h4>{{advert.advert_type}}</h4>
-            <h4>{{advert.furnished}}</h4>
+
+            {# Podstawowe informacje #}
+            <div class="advert-header"><h6>Nieruchomość: <b>{{advert.category}}</b></h6></div>
+            <div class="advert-header"><h6>Rodzaj umowy: <b>{{advert.advert_type}}</b></h6></div>
+            <div class="advert-header">
+            {% if advert.furnished %}
+                <h6>Umeblowanie: <b>Tak</b></h6>
+            {% else %}
+                <h6>Umeblowanie: <b>Nie</b></h6>
+            {% endif %}
+            </div>
+
             <hr>
+
+            {#  Opis #}
+            <h4 class="card-subtitle mb-2 text-bold">Opis</h4>
             <p class = 'card-text'>{{advert.content}}</p>
+
             <hr>
+
+            {# Zdjęcia #}
+            <h4 class="card-subtitle mb-2 text-bold">Zdjęcia</h4>
             {% if advert.image %}
                 <img src="{{advert.image.url}}" class="card-img-top">
             {% endif %}
             <hr>
-                <iframe src="{{advert_maps_url}}" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+            <h4 class="card-subtitle mb-3 text-bold">Lokalizacja</h4>
+            <div class="advert-header-location"><h6>Miasto: <b>{{advert.city}}</b></h6></div>                
+            <div class="advert-header-location"><h6>Adres: <b>{{advert.address}}</b></h6></div>                
+            {# Google Maps #}
+            <div id="google-maps-frame"><iframe src="{{advert_maps_url}}" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen=""></iframe></div>
+
             <hr>
             <small><b>Wystawiono </b>{{advert.create_date}}</small><br>
-            <small><a href="/accounts/{{advert.user}}/info">{{advert.user}}</small>
+            <small><a href="/accounts/{{advert.user}}/info">{{advert.user}}</a></small>
+
         </div>
     </div>
 </div>
