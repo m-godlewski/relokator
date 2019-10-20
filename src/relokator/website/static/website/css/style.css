@@ -2,20 +2,17 @@
     font-family: 'Kanit', sans-serif;
 }
 
-.searchbar-div{
-    width: 100%;
-    height: 500px;
-    /* background: url("/static/website/images/search-panel-background.jpeg") no-repeat fixed center; */
-    margin:0;
+#body{
+    background-color: #F4F5F7;
 }
 
-.searchbar{
-    width: 60%;
-    height: 30%;
-    margin: auto;
-    position: absolute;
-    top: 0; left: 0; bottom: 0; right: 0;
+#main-container{
+    background-color: #F4F5F7;
+    padding: 0;
 }
+
+
+/* ###################   LOGIN   ################ */
 
 .login-panel-div{
     width: 100%;
@@ -29,4 +26,35 @@
     top: 40%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+}
+
+
+
+/* ###################   SEARCHES   ################ */
+
+.searchbar-div{
+    width: 100%;
+    height: 500px;
+    background: url("/static/website/images/search-panel-background.jpeg") no-repeat fixed center;
+    opacity: 0.8;
+    margin-bottom: 3%;
+    position: relative;
+}
+
+.searchbar{
+    width: 60%;
+    left: 20%;
+    top: 30%;
+    position: absolute;
+    background-color: white;
+    border-radius: 5px;
+}
+
+#serchbar-main-input{
+    width: 50%;
+    /* margin: auto; */
+}
+
+#searchbar-search-button{
+    width: 10%
 }

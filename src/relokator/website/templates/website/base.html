@@ -18,13 +18,13 @@
     <link rel="shortcut icon" type="image/png" href="{% static 'website/images/favicon.ico' %}"/>
   </head>
 
-  <body>
+  <body id="body">
 
     <!-- Navbar -->
     {% include 'website/navbar.html' %}
 
     <!-- Page content -->
-    <div class = 'container-fluid'>
+    <div id="main-container" class = 'container-fluid'>
       {% block content %}{% endblock  %}
     </div>
 
