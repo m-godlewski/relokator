@@ -3,21 +3,31 @@
 {% block title %}Rejestracja{% endblock  %}
 
 {% block content %}
-<br>
 
-<div class="login-panel-div">
-  <div class="login-form-div">
-    {% if request.user.is_authenticated%}
-      <h2>Już jesteś zarejestrowany</h2>
-    {% else %}
-      <h2>Rejestracja</h2>
+  <div class="login-panel-div">
+
+    <div class="login-form-div">
+
+      {% if request.user.is_authenticated%}
+
+        <div class="card">
+          <div class="card-header"><h2><b>Już jesteś zarejestrowany!</b></h2></div>
+          <a class='btn btn-info' href="/">Wróć do strony głównej</a>
+        </div>
+
+      {% else %}
+
+        <h2>Rejestracja</h2>
         <form method="post">
-          {% csrf_token %}
-          {{ form.as_p }}
-        <button type="submit">Zarejestruj się</button>
-      </form>
-    {% endif %}
-    </div>
-</div>
+            {% csrf_token %}
+            {{ form.as_p }}
+          <button class="btn btn-primary" type="submit">Zarejestruj się</button>
+        </form>
+
+      {% endif %}
+
+      </div>
+
+  </div>
 
 {% endblock  %}

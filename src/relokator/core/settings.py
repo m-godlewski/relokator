@@ -25,7 +25,7 @@ SECRET_KEY = '86&h^)q=^ob+!2^i4i%+fe9aa#(25#f^+u^mm07un=m28knlgf'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '192.168.8.110'] # TODO clear vefore push
+ALLOWED_HOSTS = ['localhost', '192.168.8.110'] # TODO wyczyścić przed pushem
 
 
 # Application definition

@@ -29,7 +29,9 @@ def advert_create_view(request):
         form.save()
         form = AdvertModelForm()
     template_name = 'adverts/adverts-create.html'
-    context = {"form" : form}
+    context = {
+        "form" : form
+    }
     return render(request, template_name, context)
 
 
@@ -42,7 +44,7 @@ def advert_edit_view(request, advert_id):
     template_name = 'adverts/adverts-edit.html'
     context = {
         "form":form,
-        "title":'Edytujesz ogłoszenie {}'.format(str(obj.title))
+        "title":"Edytujesz ogłoszenie '{}'".format(str(obj.title))
     }
     return render(request, template_name, context)
 
@@ -54,5 +56,7 @@ def advert_delete_view(request, advert_id):
     if request.method == 'POST':
         obj.delete()
         return redirect(f'/accounts/{request.user}/adverts')
-    context = {"object":obj}
+    context = {
+        "object":obj
+    }
     return render(request, template_name, context)

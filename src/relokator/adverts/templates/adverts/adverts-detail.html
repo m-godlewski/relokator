@@ -4,56 +4,73 @@
 
 {% block content %}
 
-<div id="advert-detail" class = 'col-12 col-md-6 mx-auto mb-2 mt-'>
-    <div class = 'card'>
-        <div class = 'card-body'>
-            
-            <h3 id="advert-title" class='card-title'>{{advert.title}}</h3>
-            {% if advert.advert_type == "Wynajem" %}
-                <h4 id="advert-price"><b>{{advert.price}} PLN/miesięcznie</b></h6>
-            {% else %}
-                <h4 id="advert-price"><b>{{advert.price}} PLN</b></h6>
-            {% endif %}
+    <div id="advert-detail" class = 'col-12 col-md-6 mx-auto mb-2 mt-'>
 
-            <hr>
+        <div class = 'card'>
 
-            {# Podstawowe informacje #}
-            <div class="advert-header"><h6>Nieruchomość: <b>{{advert.category}}</b></h6></div>
-            <div class="advert-header"><h6>Rodzaj umowy: <b>{{advert.advert_type}}</b></h6></div>
-            <div class="advert-header">
-            {% if advert.furnished %}
-                <h6>Umeblowanie: <b>Tak</b></h6>
-            {% else %}
-                <h6>Umeblowanie: <b>Nie</b></h6>
-            {% endif %}
+            <div class = 'card-body'>
+
+                {# Tytuł i cena #}        
+                <h3 id="advert-title" class='card-title'>{{advert.title}}</h3>
+                {% if advert.advert_type == "Wynajem" %}
+                    <h4 id="advert-price"><b>{{advert.price}} PLN/miesięcznie</b></h6>
+                {% else %}
+                    <h4 id="advert-price"><b>{{advert.price}} PLN</b></h6>
+                {% endif %}
+
+                <hr>
+
+                {# Podstawowe informacje #}
+                <div class="advert-header"><h6>Nieruchomość: <b>{{advert.category}}</b></h6></div>
+                <div class="advert-header"><h6>Rodzaj umowy: <b>{{advert.advert_type}}</b></h6></div>
+                <div class="advert-header">
+                {% if advert.furnished %}
+                    <h6>Umeblowanie: <b>Tak</b></h6>
+                {% else %}
+                    <h6>Umeblowanie: <b>Nie</b></h6>
+                {% endif %}
+                </div>
+
+                <hr>
+
+                {#  Opis #}
+                <h4 class="card-subtitle mb-2 text-bold">Opis</h4>
+                <p class = 'card-text'>{{advert.content}}</p>
+
+                <hr>
+
+                {# Zdjęcia #}
+                <h4 class="card-subtitle mb-2 text-bold">Zdjęcia</h4>
+                {% if advert.image %}
+                    <img src="{{advert.image.url}}" class="card-img-top">
+                {% endif %}
+
+                <hr>
+
+                {# Lokalizacja #}
+                <h4 class="card-subtitle mb-3 text-bold">Lokalizacja</h4>
+                <div class="advert-header-location"><h6>Miasto: <b>{{advert.city}}</b></h6></div>                
+                <div class="advert-header-location"><h6>Adres: <b>{{advert.address}}</b></h6></div>                
+                {# Google Maps #}
+                <div id="google-maps-frame"><iframe src="{{advert_maps_url}}" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen=""></iframe></div>
+
+                <hr>
+
+                {# Metadane, data wystawienia i autor #}                
+                <div class="advert-header-location"><small>Wystawiono: <b>{{advert.create_date}}</b></small></div>
+                <div class="advert-header-location"><small>Autor: <a href="/accounts/{{advert.user}}/info">{{advert.user}}</a></small></div>
+
+                {# Zarządzanie ogłoszeniem #}
+                {% if request.user == advert.user %}
+                    <hr>
+                    <div class="advert-header-location"><a class="btn btn-info" href='{{advert.get_edit_url}}'>Edytuj</a></div>
+                    <div class="advert-header-location"><a class="btn btn-danger" href='{{advert.get_delete_url}}'>Usuń</a></div>
+                {% endif %}
+
             </div>
 
-            <hr>
-
-            {#  Opis #}
-            <h4 class="card-subtitle mb-2 text-bold">Opis</h4>
-            <p class = 'card-text'>{{advert.content}}</p>
-
-            <hr>
-
-            {# Zdjęcia #}
-            <h4 class="card-subtitle mb-2 text-bold">Zdjęcia</h4>
-            {% if advert.image %}
-                <img src="{{advert.image.url}}" class="card-img-top">
-            {% endif %}
-            <hr>
-            <h4 class="card-subtitle mb-3 text-bold">Lokalizacja</h4>
-            <div class="advert-header-location"><h6>Miasto: <b>{{advert.city}}</b></h6></div>                
-            <div class="advert-header-location"><h6>Adres: <b>{{advert.address}}</b></h6></div>                
-            {# Google Maps #}
-            <div id="google-maps-frame"><iframe src="{{advert_maps_url}}" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen=""></iframe></div>
-
-            <hr>
-            <small><b>Wystawiono </b>{{advert.create_date}}</small><br>
-            <small><a href="/accounts/{{advert.user}}/info">{{advert.user}}</a></small>
-
         </div>
+
     </div>
-</div>
 
 {% endblock  %}

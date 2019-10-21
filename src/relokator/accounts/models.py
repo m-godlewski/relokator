@@ -3,7 +3,9 @@ from django.contrib.auth.models import(
     BaseUserManager, AbstractBaseUser
 )
 
-
+"""
+    W trakcie tworzenia
+"""
 class Account(AbstractBaseUser):
     name = models.CharField(max_length=100, blank=False, verbose_name="Imię")
     surname = models.CharField(max_length=100, blank=True, verbose_name="Nazwisko")

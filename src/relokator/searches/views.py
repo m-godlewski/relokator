@@ -3,6 +3,7 @@ from adverts.models import Advert
 from .models import SearchQuery
 import sys
 
+
 def get_search_parameters(request):
 
     parameters = {}
@@ -47,5 +48,6 @@ def search_view(request):
         SearchQuery.objects.create(user=user, query=query)
         adverts_list = Advert.objects.search(query=query, parameters=parameters)
         context['adverts_list'] = adverts_list
+        context['counter'] = len(adverts_list)
 
     return render(request, 'searches/search-view.html', context)

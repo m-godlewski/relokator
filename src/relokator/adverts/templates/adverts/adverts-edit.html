@@ -1,19 +1,23 @@
 {% extends 'website/base.html' %}
 
-{% block title %}Edycja ogłoszenia{% endblock  %}
+{% block title %}{{title}}{% endblock  %}
 
 {% block content %}
 
-<div class="card" style="margin:5%;">
-    <div class="card-body">
-        <center>
-        <form method="POST" action="">
-            {% csrf_token %}
-            {{form.as_p}}
-            <button type="submit">Edytuj</button>
-        </form>
-        </center>
+    <div class="card" style="margin:5%;">
+
+        <div class="card-body">
+
+            <center>
+            <form method="POST" action="">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button class="btn btn-primary" type="submit">Edytuj</button>
+            </form>
+            </center>
+
+        </div>
+
     </div>
-</div>
 
 {% endblock  %}

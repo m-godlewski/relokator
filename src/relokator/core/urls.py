@@ -14,7 +14,7 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')), # sign in (accounts app)
     path('adverts/new', advert_create_view), # advert creation
     path('adverts/', include('adverts.urls')), # advert app
-    path('search/', search_view) 
+    path('search/', search_view) # search app
 ]
 
 if settings.DEBUG:

@@ -6,7 +6,6 @@ from .views import (
     account_adverts
 )
 
-
 urlpatterns = [
     path('register/',Registration.as_view(), name='signup'),
     path('<str:account_id>/info', account_info),
