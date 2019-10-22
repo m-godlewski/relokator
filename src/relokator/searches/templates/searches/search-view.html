@@ -23,7 +23,7 @@
                     {% endif %}
 
                     {% for advert in adverts_list %}
-                        {% include 'adverts/adverts-inline.html' with advert=advert truncate=True details=False%}
+                        {% include 'adverts/adverts-inline.html' with advert=advert truncate=True details=False settings=False%}
                     {% endfor %}
 
                 </div>

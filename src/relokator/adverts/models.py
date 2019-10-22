@@ -74,7 +74,7 @@ class Advert(models.Model):
     furnished = models.BooleanField(default=False, verbose_name='Umeblowanie')
     city = models.CharField(max_length=100, blank=False, verbose_name='Miasto')
     address = models.CharField(max_length=100, blank=False, verbose_name='Adres')
-    price = models.IntegerField(blank=False, null=False, verbose_name='Cena')
+    price = models.PositiveIntegerField(blank=False, null=False, verbose_name='Cena')
     image = models.ImageField(upload_to='images/', blank=True, null=True, verbose_name='Zdjęcia')
 
     objects = AdvertManager()

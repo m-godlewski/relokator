@@ -26,8 +26,10 @@
 
             <!-- Edit, Delete -->
             {% if request.user == advert.user %}
-                <a class="btn btn-info" href='{{object.get_edit_url}}'>Edytuj</a>
-                <a class="btn btn-danger" href='{{object.get_delete_url}}'>Usuń</a>
+                {% if settings %}
+                    <a class="btn btn-info" href='{{object.get_edit_url}}'>Edytuj</a>
+                    <a class="btn btn-danger" href='{{object.get_delete_url}}'>Usuń</a>
+                {% endif %}
             {% endif %}
 
         </div>

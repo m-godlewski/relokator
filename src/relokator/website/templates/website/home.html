@@ -14,7 +14,7 @@
     <h2 style="padding-left:1%">Najnowsze ogłoszenia</h2>
     <div style="margin:auto" class='row'>
         {% for object in qs %}
-            {% include 'adverts/adverts-inline.html' with advert=object truncate=True detail=False%}
+            {% include 'adverts/adverts-inline.html' with advert=object truncate=True detail=False settings=False %}
         {% endfor %}
     </div>
     
