@@ -2,37 +2,39 @@
 
     <div class = 'card'>
 
-        <div class = 'card-body'>
+        <a id="advert-inline" href="/adverts/{{advert.id}}">
+            <div class = 'card-body'>
 
-            <!-- Title -->
-            <a href="/adverts/{{advert.id}}"><h5 class = 'card-title'>{{advert.title}}</h5></a>
+                <!-- Title -->
+                <h5 id="advert-inline-title" class = 'card-title'>{{advert.title}}</h5>
 
-            <!-- City -->
-            <p class = 'card-text'><h5>{{advert.city}}</h5></p>
+                <!-- City -->
+                <p class = 'card-text'><h5>{{advert.city}}</h5></p>
 
-            <!-- Content -->
-            <p class= 'card-text'>
-                {% if truncate %}
-                    {{ advert.content|linebreaks|truncatewords:30}}
-                {% else %}
-                    {{ advert.content|linebreaks}}           
+                <!-- Content -->
+                <p class= 'card-text'>
+                    {% if truncate %}
+                        {{ advert.content|linebreaks|truncatewords:30}}
+                    {% else %}
+                        {{ advert.content|linebreaks}}           
+                    {% endif %}
+                </p>
+
+                <!-- Image -->
+                {% if advert.image %}
+                    <img src="{{advert.image.url}}" width="40%" height="auto" align="right">
                 {% endif %}
-            </p>
 
-            <!-- Image -->
-            {% if advert.image %}
-                <img src="{{advert.image.url}}" width="40%" height="auto" align="right">
-            {% endif %}
-
-            <!-- Edit, Delete -->
-            {% if request.user == advert.user %}
-                {% if settings %}
-                    <a class="btn btn-info" href='{{object.get_edit_url}}'>Edytuj</a>
-                    <a class="btn btn-danger" href='{{object.get_delete_url}}'>Usuń</a>
+                <!-- Edit, Delete -->
+                {% if request.user == advert.user %}
+                    {% if settings %}
+                        <a class="btn btn-info" href='{{object.get_edit_url}}'>Edytuj</a>
+                        <a class="btn btn-danger" href='{{object.get_delete_url}}'>Usuń</a>
+                    {% endif %}
                 {% endif %}
-            {% endif %}
 
-        </div>
+            </div>
+        </a>
 
     </div>
 

@@ -72,32 +72,39 @@
 
 /* ###################   ADVERTS   ################ */
 
+#advert-inline{
+    color:black;
+}
+#advert-inline:hover{
+    text-decoration: none;
+}
+#advert-inline-title{
+    color: #007bff;
+}
+
+
 #advert-detail{
     padding-top:4%;
     padding-bottom: 4%;
 }
-
-#advert-title{
+#advert-detail-title{
     display: inline-block;
+    color: #007bff;
 }
-
-#advert-price{
+#advert-detail-price{
     float: right;
     margin-right: 10%;
 }
-
-.advert-header{
+.advert-detail-header{
     display: inline-block;
     text-align: center;
     width: 32%
 }
-
-.advert-header-location{
+.advert-detail-location{
     display: inline-block;
     text-align: center;
     width: 45%
 }
-
 #google-maps-frame{
     width: 100%;
 }
