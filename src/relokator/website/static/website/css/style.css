@@ -79,7 +79,18 @@
     text-decoration: none;
 }
 #advert-inline-title{
+    display: inline-block;
     color: #007bff;
+    width: 100%;
+}
+#advert-inline-city{
+    display: inline-block;
+    width: 100%;
+}
+#advert-inline-image{
+    width: 100%;
+    float: right;
+    margin-bottom: 2%;
 }
 
 

@@ -16,8 +16,11 @@ class Registration(generic.CreateView):
 
 def account_info(request, account_id):
     template_name = 'accounts/account_info.html'
+    user = User.objects.get(username=account_id)
+    qs = Advert.objects.filter(Q(user=user))
     context = {
         'username':account_id,
+        'user': user
     }
     return render(request, template_name, context) 
 
@@ -30,4 +33,4 @@ def account_adverts(request, account_id):
         'username': account_id,
         'object_list': qs
     }
-    return render(request, template_name, context) 
+    return render(request, template_name, context)

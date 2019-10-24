@@ -6,31 +6,14 @@
             <div class = 'card-body'>
 
                 <!-- Title -->
-                <h5 id="advert-inline-title" class = 'card-title'>{{advert.title}}</h5>
+                <div id="advert-inline-title"><h5 class="card-title">{{advert.title}}</h5></div>
 
                 <!-- City -->
-                <p class = 'card-text'><h5>{{advert.city}}</h5></p>
-
-                <!-- Content -->
-                <p class= 'card-text'>
-                    {% if truncate %}
-                        {{ advert.content|linebreaks|truncatewords:30}}
-                    {% else %}
-                        {{ advert.content|linebreaks}}           
-                    {% endif %}
-                </p>
+                <div id="advert-inline-city"><h5 class="card-text">{{advert.city}}</h5></div>
 
                 <!-- Image -->
                 {% if advert.image %}
-                    <img src="{{advert.image.url}}" width="40%" height="auto" align="right">
-                {% endif %}
-
-                <!-- Edit, Delete -->
-                {% if request.user == advert.user %}
-                    {% if settings %}
-                        <a class="btn btn-info" href='{{object.get_edit_url}}'>Edytuj</a>
-                        <a class="btn btn-danger" href='{{object.get_delete_url}}'>Usuń</a>
-                    {% endif %}
+                    <div id="advert-inline-image"><img src="{{advert.image.url}}" width="60%" height="300", align="right"></div>
                 {% endif %}
 
             </div>
