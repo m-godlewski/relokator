@@ -30,7 +30,7 @@
 
 
 
-/* ###################   SEARCHES   ################ */
+/* ###################   SEARCHES   ############### */
 
 .searchbar-div{
     width: 100%;
@@ -81,17 +81,22 @@
 #advert-inline-title{
     display: inline-block;
     color: #007bff;
-    width: 100%;
+    width: 50%;
 }
 #advert-inline-city{
     display: inline-block;
-    width: 100%;
+    width: 50%;
+}
+#advert-inline-price{
+    display: inline-block;
+    width: 50%;
 }
 #advert-inline-image{
-    width: 100%;
+    width: 50%;
     float: right;
     margin-bottom: 2%;
 }
+
 
 
 #advert-detail{
@@ -118,4 +123,13 @@
 }
 #google-maps-frame{
     width: 100%;
+}
+
+
+
+/* ###################   ACCOUNT   ################ */
+#account-info-body{
+    text-align: left;
+    margin-left: 5%;
+    margin-top: 2%;
 }
