@@ -40,17 +40,17 @@ class AdvertManager(models.Manager):
 class Advert(models.Model):
     '''Model ogłoszenia
 
-    user [id] - użytkownik wystawiający ogłoszenie
-    title [str] - tytuł ogłoszenia
-    content [str] - opis ogłoszenia]
-    category [str] - kategoria ogłoszenia (dom, miekszanie lub pokój)
-    advert_type [str] - typ ogłoszenia (wynajem, sprzedaż)
+    user [integer] - użytkownik wystawiający ogłoszenie
+    title [char] - tytuł ogłoszenia
+    content [char] - opis ogłoszenia]
+    category [char] - kategoria ogłoszenia (dom, miekszanie lub pokój)
+    advert_type [char] - typ ogłoszenia (wynajem, sprzedaż)
     create_date [datetime] - data wystawienia ogłoszenia
     furnished [boolean] - umeblowanie
-    city [str] - miasto
-    address [str] - adres (ulica i numer mieszkania/domu)
-    price [int] - cena
-    image [imagefield] - zdjęcie #TODO dodaj możliwość dodania kilku zdjęć
+    city [char] - miasto
+    address [char] - adres (ulica i numer mieszkania/domu)
+    price [integer] - cena
+    image [image] - zdjęcie #TODO dodaj możliwość dodania kilku zdjęć
     '''
 
     CATEGORY_CHOICES = (

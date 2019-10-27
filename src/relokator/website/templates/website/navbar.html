@@ -14,8 +14,11 @@
   </button>
 
   <div id="navb" class="navbar-collapse collapse hide">
+  
     <ul class="nav navbar-nav ml-auto" style="font-size:20px;">
+
       {% if user.is_authenticated%}
+
           <li class="nav-item">
             <a class="nav-link" href="/accounts/{{request.user}}/info"><span class="fas fa-user"></span> {{user.username}}</a>
           </li>
@@ -25,15 +28,20 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'logout' %}"><span class="fas fa-sign-out-alt"></span> Wyloguj</a>
           </li>
+
       {% else %}
+
           <li class="nav-item">
             <a class="nav-link" href="/accounts/register/"><span class="fas fa-user"></span> Zarejestruj się</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/accounts/login/"><span class="fas fa-sign-in-alt"></span> Zaloguj się</a>
           </li>
+
       {% endif %}
+
     </ul>
+
   </div>
   
 </nav>

@@ -86,6 +86,10 @@ DATABASES = {
 }
 
 
+# User Validation
+AUTH_USER_MODEL = "accounts.Account"
+
+
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
@@ -117,6 +121,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+DATE_INPUT_FORMATS = ['%d-%m-%Y']
 
 
 # Login/Logout

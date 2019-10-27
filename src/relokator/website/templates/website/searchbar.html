@@ -1,61 +1,58 @@
-<div class="searchbar">
+<div id="searchbar">
 
   <form class="form-inline my-2 my-lg-0" action='/search/'>
 
+    <div id="serchbar-row-city" class="form-row">
+      {# text search input #}
+      <input class="searchbar-input-city" type="search" name='q' placeholder="Podaj miasto" aria-label="Search">
+    </div>
 
-    <div clas="row" style="width:100%">
-
-      <div class="form-row">
-        {# text search input #}
-        <input id="serchbar-main-input" class="form-control mr-sm-2" type="search" name='q' placeholder="Podaj miejscowość" aria-label="Search">
+    {# Advert.category #} 
+    <div id="searchbar-row" class="form-row">    
+      <div class="col">
+        <select class="searchbar-select" name='category' id="category">
+          <option selected disabled>Kategoria</option>
+          <option value>Wszystkie</option>
+          <option value="Dom">Dom</option>
+          <option value="Mieszkanie">Mieszkanie</option>
+          <option value="Pokój">Pokój</option>
+        </select>
       </div>
-
-      {# Advert.category #} 
-      <div id="searchbar-row" class="form-row">    
-        <div class="form-group col-md-4">
-          <label for="category">Kategoria</label>
-          <select name='category' id="category">
-            <option selected value>Wszystkie</option>
-            <option value="Dom">Dom</option>
-            <option value="Mieszkanie">Mieszkanie</option>
-            <option value="Pokój">Pokój</option>
-          </select>
-        </div>
-        {# Adver.advert_type #}
-        <div class="form-group col-md-4">
-          <label for="advert_type">Typ</label>
-          <select name='advert_type' id="advert_type">
-            <option selected value>Wszystkie</option>
-            <option value="Wynajem">Wynajem</option>
-            <option value="Sprzedaż">Sprzedaż</option>
-          </select>
-        </div>
-        {# Advert.furnished #}
-        <div class="form-group col-md-4">
-          <label for="furnished">Umeblowanie</label>
-          <select name='furnished' id="furnished">
-            <option selected value>Wszystkie</option>
-            <option value="Tak">Tak</option>
-            <option value="Nie">Nie</option>
-          </select>
-        </div>
+      {# Adver.advert_type #}
+      <div class="col">
+        <select class="searchbar-select" name='advert_type' id="advert_type">
+          <option selected disabled>Typ</option>
+          <option value>Wszystkie</option>
+          <option value="Wynajem">Wynajem</option>
+          <option value="Sprzedaż">Sprzedaż</option>
+        </select>
       </div>
-    
-      {# Cena minimalna i maksymalna #}
-      <div id="searchbar-row" class="form-row">
-        <div class="form-group col-md-6">
-          <label for="price_min">Cena minimalna</label>
-          <input type="text" class="form-control" id="price_min" name='price_min'>
-        </div>
-      <div class="form-group col-md-6">
-        <label for="price_max">Cena maksymalna</label>
-        <input type="text" class="form-control" id="price_max" name='price_max'>
+      {# Advert.furnished #}
+      <div class="col">
+        <select class="searchbar-select" name='furnished' id="furnished">
+          <option selected disabled>Umeblowanie</option>
+          <option value>Wszystkie</option>
+          <option value="Tak">Tak</option>
+          <option value="Nie">Nie</option>
+        </select>
       </div>
-
     </div>
   
-    {# search button #}
-    <button id="searchbar-search-button" class="btn btn-outline-primary my-2 my-sm-0" type="submit">Szukał według Twoich preferencji</button>
+    {# Cena minimalna i maksymalna #}
+    <div id="searchbar-row" class="form-row">
+      <div class="col">
+        <input class="searchbar-input" type="text" class="form-control" id="price_min" name='price_min' placeholder="Cena minimalna">
+      </div>
+      <div class="col">
+        <input class="searchbar-input" type="text" class="form-control" id="price_max" name='price_max' placeholder="Cena maksymalna">
+      </div>
+    </div>
+  
+    {% comment %} {# search button #} {% endcomment %}
+    <div id="searchbar-row" class="form-row">    
+      <button id="searchbar-button-search" class="btn btn-primary my-2 my-sm-0" type="submit">Szukaj</button>
+    </div>
 
   </form>
+  
 </div>

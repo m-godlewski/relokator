@@ -13,7 +13,7 @@ def advert_detail_view(request, advert_id):
     qs = qs[0]
     qs_maps_url = GoogleMapsLocation(qs.address, qs.city)
     context = {
-        'title':str(qs.title),
+        'title': str(qs.title),
         'advert': qs,
         'advert_maps_url': qs_maps_url.get_location_url()
     }
@@ -43,8 +43,8 @@ def advert_edit_view(request, advert_id):
         form.save()
     template_name = 'adverts/adverts-edit.html'
     context = {
-        "form":form,
-        "title":"Edytujesz ogłoszenie '{}'".format(str(obj.title))
+        "form": form,
+        "title": "Edytujesz ogłoszenie '{}'".format(str(obj.title))
     }
     return render(request, template_name, context)
 
@@ -57,6 +57,6 @@ def advert_delete_view(request, advert_id):
         obj.delete()
         return redirect(f'/accounts/{request.user}/adverts')
     context = {
-        "object":obj
+        "object": obj
     }
     return render(request, template_name, context)

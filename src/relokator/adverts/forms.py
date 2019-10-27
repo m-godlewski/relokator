@@ -3,6 +3,7 @@ from .models import Advert
 
 
 class AdvertCreateForm(forms.Form):
+    
     title = forms.CharField(label='Wpisz tytuł', required=True)
     content = forms.CharField(widget=forms.Textarea, required=True)
     city = forms.CharField(required=True)
