@@ -15,7 +15,7 @@ class AdvertQuerySet(models.QuerySet):
             filters['category'] = parameters['category']
         if parameters['advert_type']:
             filters['advert_type'] = parameters['advert_type']
-        if parameters['furnished']:
+        if parameters['furnished'] is not None:
             filters['furnished'] = parameters['furnished']
  
         return self.filter(

@@ -25,6 +25,7 @@
     margin-bottom: 3%;
     position: relative;
 }
+
 #searchbar{
     background-color: rgba(255, 255, 255, 0.9);
     color: black;
@@ -36,14 +37,17 @@
 }
 
 /* SEARCHBAR ROWS */
+
 #searchbar-row{
     width: 100%;
     margin-top: 2%;
 }
+
 #serchbar-row-city{
     width: 100%;
     margin-top: 2%;
 }
+
 #searchbar-row-button{
     width: 100%;
     margin-top: 2%;
@@ -51,17 +55,20 @@
 }
 
 /* SEARCHBAR INPUTS/SELECTS */
+
 .searchbar-input{
     display: block;
     margin: 0 auto;
     text-align: center;
 }
+
 .searchbar-input-city{
     width: 50%;
     display: block;
     margin: 0 auto;
     text-align: center;
 }
+
 .searchbar-select{
     display: block;
     margin: 0 auto;
@@ -79,25 +86,31 @@
 /* ########## ADVERTS ########## */
 
 /* ADVERT INLINE */
+
 #advert-inline{
     color:black;
 }
+
 #advert-inline:hover{
     text-decoration: none;
 }
+
 #advert-inline-title{
     color: #007bff;
     width: 50%;
     display: inline-block;
 }
+
 #advert-inline-city{
     width: 50%;
     display: inline-block;
 }
+
 #advert-inline-price{
     width: 50%;
     display: inline-block;
 }
+
 #advert-inline-image{
     width: 50%;
     float: right;
@@ -105,30 +118,37 @@
 }
 
 /* ADVERT DETAIL */
+
 #advert-detail{
     padding-top: 4%;
     padding-bottom: 4%;
 }
+
 #advert-detail-title{
     color: #007bff;
     display: inline-block;
 }
+
 #advert-detail-price{
     float: right;
     margin-right: 10%;
 }
+
 .advert-detail-header{
     width: 32%;
     display: inline-block;
     text-align: center;
 }
+
 .advert-detail-location{
     width: 45%;
     display: inline-block;
     text-align: center;
 }
+
 #google-maps-frame{
     width: 100%;
+    margin-top: 2%;
 }
 
 
@@ -136,6 +156,7 @@
 /* ########## ACCOUNTS ########## */
 
 /* ACCOUNT DIVS */
+
 #account-info-body{
     text-align: center;
     margin-left: 15%;
@@ -143,14 +164,18 @@
     margin-top: 2%;
     margin-bottom: 2%;
 }
+
 #account-info-div-data{
     width: 75%;
+    margin-top: 2%;
     display: inline-block;
     text-align: justify;
     text-justify: inter-word;
 }
+
 #account-info-div-image{
     width: 20%;
+    margin-top: 2%;
     display: inline-block;
     border-style: solid;
     border-color: #007bff;

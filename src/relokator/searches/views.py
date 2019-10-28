@@ -11,7 +11,7 @@ def get_search_parameters(request):
     parameters['advert_type'] = request.GET.get('advert_type', None)
 
     # umeblowanie
-    parameters['furnished'] = request.GET.get('furnished', False)
+    parameters['furnished'] = request.GET.get('furnished', None)
     if parameters['furnished'] == "Tak":
         parameters['furnished'] = True
     elif parameters['furnished'] == "Nie":
