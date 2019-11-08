@@ -7,7 +7,7 @@
     <div class="card text-center" style="margin:5%;">
 
         <div class="card-header">
-
+            
             <ul class="nav nav-tabs card-header-tabs">
                 <li class="nav-item">
                     <a class="nav-link active" href="info">Profil</a>
@@ -15,16 +15,18 @@
                 <li class="nav-item">
                     <a class="nav-link" href="adverts">Ogłoszenia</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">Ustawienia</a>
-                </li>
+                {% if request.user.username == username %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="settings">Ustawienia</a>
+                    </li>
+                {% endif %}
             </ul>
             
         </div>
 
         <div id="account-info-body" class="card-body">
 
-            <h1>{{user.username}}</h1>
+            <h2>Profil użytkownika {{user.username}}</h2>
 
             <hr>
 

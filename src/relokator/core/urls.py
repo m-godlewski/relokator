@@ -11,7 +11,7 @@ urlpatterns = [
     path('', home),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')), # login (django auth app)
-    path('accounts/', include('accounts.urls')), # sign in (accounts app)
+    path('accounts/', include('accounts.urls')), # sign in and others (accounts app)
     path('adverts/new', advert_create_view), # advert creation
     path('adverts/', include('adverts.urls')), # advert app
     path('search/', search_view) # search app

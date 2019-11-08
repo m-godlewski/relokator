@@ -23,7 +23,10 @@ class AccountCreationForm(UserCreationForm):
         fields = ('username', 'name', 'surname', 'email', 'phone_number', 'profile_image')
 
 
-class AccountEditForm(UserChangeForm):
+class AccountUpdateForm(UserChangeForm):
+
+    password = None
+    
     class Meta:
         model = Account
         fields = ('name', 'surname', 'email', 'phone_number', 'profile_image')

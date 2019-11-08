@@ -8,27 +8,32 @@ from maps.models import GoogleMapsLocation
 
 
 def advert_detail_view(request, advert_id):
+
     template_name = 'adverts/adverts-detail.html'
-    qs = Advert.objects.filter(Q(id=advert_id))
-    qs = qs[0]
-    qs_maps_url = GoogleMapsLocation(qs.address, qs.city)
+    advert = Advert.objects.filter(Q(id=advert_id))
+    advert = advert[0]
+    advert_maps_url = GoogleMapsLocation(advert.address, advert.city)
+    
     context = {
-        'title': str(qs.title),
-        'advert': qs,
-        'advert_maps_url': qs_maps_url.get_location_url()
+        'title': str(advert.title),
+        'advert': advert,
+        'advert_maps_url': advert_maps_url.get_location_url()
     }
     return render(request, template_name, context) 
 
 
 @login_required
 def advert_create_view(request):
+
+    template_name = 'adverts/adverts-create.html'
     form = AdvertModelForm(request.POST or None, request.FILES or None)
+
     if form.is_valid():
         obj = form.save(commit=False)
         obj.user = request.user
         form.save()
         form = AdvertModelForm()
-    template_name = 'adverts/adverts-create.html'
+
     context = {
         "form" : form
     }
@@ -37,26 +42,35 @@ def advert_create_view(request):
 
 @login_required
 def advert_edit_view(request, advert_id):
-    obj = get_object_or_404(Advert, id=advert_id)
-    form = AdvertModelForm(request.POST or None, instance=obj)
+
+    template_name = 'adverts/adverts-edit.html'
+    advert = get_object_or_404(Advert, id=advert_id)
+    form = AdvertModelForm(request.POST or None, instance=advert)
+
     if form.is_valid():
         form.save()
-    template_name = 'adverts/adverts-edit.html'
+
+    if request.user.username != str(advert.user):
+        return render(request, 'website/error_404.html')
+
     context = {
         "form": form,
-        "title": "Edytujesz ogłoszenie '{}'".format(str(obj.title))
+        "title": "Edytujesz ogłoszenie '{}'".format(str(advert.title))
     }
     return render(request, template_name, context)
 
 
 @login_required
 def advert_delete_view(request, advert_id):
-    obj = get_object_or_404(Advert, id=advert_id)
+
     template_name ='adverts/adverts-delete.html'
+    advert = get_object_or_404(Advert, id=advert_id)
+
     if request.method == 'POST':
-        obj.delete()
+        advert.delete()
         return redirect(f'/accounts/{request.user}/adverts')
+
     context = {
-        "object": obj
+        "object": advert
     }
     return render(request, template_name, context)

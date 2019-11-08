@@ -1,2 +1,5 @@
 # relokator
-## v0.5.0
+## v0.6.0
+
+- custom user model
+- profile view updated
