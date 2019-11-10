@@ -15,7 +15,7 @@
 
   <div id="navb" class="navbar-collapse collapse hide">
   
-    <ul class="nav navbar-nav ml-auto" style="font-size:20px;">
+    <ul id="navbar-menu" class="nav navbar-nav ml-auto" style="font-size:20px;">
 
       {% if user.is_authenticated%}
 
@@ -26,11 +26,32 @@
           {% endif %}
 
           <li class="nav-item">
-            <a class="nav-link" href="/accounts/{{request.user}}/info"><span class="fas fa-user"></span> {{request.user}}</a>
+            <a class="nav-link" href="/accounts/{{request.user}}/info"><span class="fas fa-user"></span> Mój Profil</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/adverts/new"><span class="fas fa-plus"></span> Dodaj ogłoszenie</a>
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="far fa-newspaper"></span> Ogłoszenia
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/adverts/new">Stwórz</a>
+              <a class="dropdown-item" href="#">Przeglądaj</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/accounts/{{request.user.username}}/adverts">Moje ogłoszenia</a>
+            </div>
           </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="fa fa-briefcase"></span> Firmy
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Przeglądaj</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Moja firma</a>
+            </div>
+          </li>
+
           <li class="nav-item">
             <a class="nav-link" href="{% url 'logout' %}"><span class="fas fa-sign-out-alt"></span> Wyloguj</a>
           </li>
