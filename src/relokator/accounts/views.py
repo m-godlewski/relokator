@@ -1,7 +1,5 @@
-from django.urls import reverse_lazy
-from django.views.generic.edit import CreateView, UpdateView
-from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 
 from accounts.models import Account
@@ -9,6 +7,7 @@ from adverts.models import Advert
 from .forms import AccountCreationForm, AccountUpdateForm
 
 
+# CREATE
 def account_register_view(request):
 
     template_name = "accounts/account_register.html"
@@ -25,6 +24,7 @@ def account_register_view(request):
     return render(request, template_name, context)
 
 
+# RETRIEVE
 def account_info_view(request, account_id):
 
     template_name = 'accounts/account_info.html'
@@ -50,6 +50,7 @@ def account_adverts_view(request, account_id):
     }
     return render(request, template_name, context)
 
+# UPDATE
 @login_required
 def account_update_view(request, account_id):
 
@@ -68,3 +69,8 @@ def account_update_view(request, account_id):
         'form': form,
     }
     return render(request, template_name, context)
+
+
+# TODO DELETE
+def account_delete_view(request):
+    pass

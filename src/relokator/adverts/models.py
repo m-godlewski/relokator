@@ -65,7 +65,7 @@ class Advert(models.Model):
     )
 
     slug = models.SlugField(null=True, blank=True)
-    user = models.ForeignKey(User, default=1, null=True, on_delete=models.SET_NULL)
+    user = models.ForeignKey(User, default=1, null=True, on_delete=models.CASCADE)
     title = models.CharField(max_length=120, verbose_name='Tytuł')
     content = models.TextField(null=True, blank=True, verbose_name='Opis')
     category = models.CharField(max_length=10, choices=CATEGORY_CHOICES, verbose_name='Kategoria')

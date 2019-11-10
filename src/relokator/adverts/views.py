@@ -1,5 +1,5 @@
-from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 
 from .models import Advert
@@ -7,21 +7,7 @@ from .forms import AdvertModelForm
 from maps.models import GoogleMapsLocation
 
 
-def advert_detail_view(request, advert_id):
-
-    template_name = 'adverts/adverts-detail.html'
-    advert = Advert.objects.filter(Q(id=advert_id))
-    advert = advert[0]
-    advert_maps_url = GoogleMapsLocation(advert.address, advert.city)
-    
-    context = {
-        'title': str(advert.title),
-        'advert': advert,
-        'advert_maps_url': advert_maps_url.get_location_url()
-    }
-    return render(request, template_name, context) 
-
-
+# CREATE
 @login_required
 def advert_create_view(request):
 
@@ -40,6 +26,23 @@ def advert_create_view(request):
     return render(request, template_name, context)
 
 
+# RETRIEVE 
+def advert_detail_view(request, advert_id):
+
+    template_name = 'adverts/adverts-detail.html'
+    advert = Advert.objects.filter(Q(id=advert_id))
+    advert = advert[0]
+    advert_maps_url = GoogleMapsLocation(advert.address, advert.city)
+    
+    context = {
+        'title': str(advert.title),
+        'advert': advert,
+        'advert_maps_url': advert_maps_url.get_location_url()
+    }
+    return render(request, template_name, context) 
+
+
+# UPDATE
 @login_required
 def advert_edit_view(request, advert_id):
 
@@ -60,6 +63,7 @@ def advert_edit_view(request, advert_id):
     return render(request, template_name, context)
 
 
+# DELETE
 @login_required
 def advert_delete_view(request, advert_id):
 

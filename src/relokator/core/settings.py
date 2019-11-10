@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'website',
     'adverts',
     'searches',
-    'maps'
+    'maps',
+    'companies'
 ]
 
 MIDDLEWARE = [
