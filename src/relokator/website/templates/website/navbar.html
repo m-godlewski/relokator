@@ -30,25 +30,25 @@
           </li>
           
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="far fa-newspaper"></span> Ogłoszenia
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="/adverts/new">Stwórz</a>
-              <a class="dropdown-item" href="#">Przeglądaj</a>
+              <a class="dropdown-item" href="/adverts">Przeglądaj</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="/accounts/{{request.user.username}}/adverts">Moje ogłoszenia</a>
             </div>
           </li>
 
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="fa fa-briefcase"></span> Firmy
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Przeglądaj</a>
+              <a class="dropdown-item" href="/companies">Przeglądaj</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Moja firma</a>
+              <a class="dropdown-item" href="/companies/new">Moja firma</a>
             </div>
           </li>
 

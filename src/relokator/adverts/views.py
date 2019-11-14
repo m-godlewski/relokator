@@ -10,7 +10,6 @@ from maps.models import GoogleMapsLocation
 # CREATE
 @login_required
 def advert_create_view(request):
-
     template_name = 'adverts/adverts-create.html'
     form = AdvertModelForm(request.POST or None, request.FILES or None)
 
@@ -28,7 +27,6 @@ def advert_create_view(request):
 
 # RETRIEVE 
 def advert_detail_view(request, advert_id):
-
     template_name = 'adverts/adverts-detail.html'
     advert = Advert.objects.filter(Q(id=advert_id))
     advert = advert[0]
@@ -42,10 +40,20 @@ def advert_detail_view(request, advert_id):
     return render(request, template_name, context) 
 
 
+def advert_browse_view(request):
+    template_name = "adverts/adverts-browse.html"
+    query = Advert.objects.all()
+
+    context = {
+        "title": "Ogłoszenia",
+        "query": query
+    }
+    return render(request, template_name, context)
+
+
 # UPDATE
 @login_required
-def advert_edit_view(request, advert_id):
-
+def advert_update_view(request, advert_id):
     template_name = 'adverts/adverts-edit.html'
     advert = get_object_or_404(Advert, id=advert_id)
     form = AdvertModelForm(request.POST or None, instance=advert)
@@ -66,7 +74,6 @@ def advert_edit_view(request, advert_id):
 # DELETE
 @login_required
 def advert_delete_view(request, advert_id):
-
     template_name ='adverts/adverts-delete.html'
     advert = get_object_or_404(Advert, id=advert_id)
 

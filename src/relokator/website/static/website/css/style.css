@@ -185,3 +185,12 @@
     width: 30%;
     margin: auto;
 }
+
+
+
+/* ########## BOOTSTRAP OVERRIDED ########## */
+
+.navbar-nav > li{
+    margin-left:10px;
+    margin-right:10px;
+  }

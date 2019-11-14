@@ -17,6 +17,7 @@ class AccountCreationForm(UserCreationForm):
         super(AccountCreationForm, self).__init__(*args, **kwargs)
         for fieldname in ['username', 'password1', 'password2']:
             self.fields[fieldname].help_text = None
+        self.fields['password1'].verbose_name = "Hasło"
 
     class Meta:
         model = Account

@@ -8,13 +8,13 @@ User = settings.AUTH_USER_MODEL
 class Company(models.Model):
     """Model firmy przeprowadzkowej
 
-    owner [integer] - użytkownik będący właścicielem firmy
+    user [integer] - użytkownik będący właścicielem firmy
     name [char] - nazwa firmy
     location [char] - obszar działania firmy
     logo [image] - logo firmy
     """
 
-    owner = models.ForeignKey(User, default=1, null=True, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, default=1, null=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=50, unique=True, blank=False, verbose_name="Nazwa")
     location = models.CharField(max_length=100, unique=False ,blank=False, verbose_name='Lokacja')
     logo = models.ImageField(upload_to='company_logo/', blank=True, null=True, verbose_name="Logo")
