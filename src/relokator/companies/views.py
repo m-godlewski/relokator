@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 
 from .models import Company
 from .forms import CompanyModelForm
@@ -17,17 +18,16 @@ def company_create_view(request):
         form.save()
         form = CompanyModelForm()
 
-    context = {
-        "title": "Rejestracja firmy",
-        "form" : form
-    }
+    context = {"title": "Rejestracja firmy", "form": form}
     return render(request, template_name, context)
 
 
 # RETRIEVE
 def company_detail_view(request, company_id):
     template_name = "companies/companies-info.html"
-    context = {}
+    company = get_object_or_404(Company, id=company_id)
+
+    context = {"title": company.name, "company": company}
     return render(request, template_name, context)
 
 
@@ -35,10 +35,7 @@ def company_browse_view(request):
     template_name = "companies/companies-browse.html"
     query = Company.objects.all()
 
-    context = {
-        "title": "Firmy przeprowadzkowe",
-        "query": query
-    }
+    context = {"title": "Firmy przeprowadzkowe", "query": query}
     return render(request, template_name, context)
 
 

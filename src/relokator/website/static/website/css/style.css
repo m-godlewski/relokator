@@ -131,7 +131,7 @@
 
 #advert-detail-price{
     float: right;
-    margin-right: 10%;
+    margin-right: 5%;
 }
 
 .advert-detail-header{
@@ -184,6 +184,14 @@
 #account-info-data{
     width: 30%;
     margin: auto;
+}
+
+
+
+/* ########## COMPANIES ########## */
+#company-info-div-image{
+    width: 30%;
+    margin: 2% 0 2% 0;
 }
 
 

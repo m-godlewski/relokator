@@ -1,6 +1,6 @@
 {% extends 'website/base.html' %}
 
-{% block title %}{{username}}{% endblock  %}
+{% block title %}{{title}}{% endblock  %}
 
 {% block content %}
     
@@ -15,6 +15,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="adverts">Ogłoszenia</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="companies">Firmy</a>
+                </li>
                 {% if request.user.username == username %}
                     <li class="nav-item">
                         <a class="nav-link" href="settings">Ustawienia</a>
@@ -26,7 +29,7 @@
 
         <div id="account-info-body" class="card-body">
 
-            <h2>Profil użytkownika {{user.username}}</h2>
+            <h2>Profil użytkownika <b>{{user.username}}</b></h2>
 
             <hr>
 

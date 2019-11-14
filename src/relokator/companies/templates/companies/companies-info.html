@@ -4,7 +4,30 @@
 
 {% block content %}
     
-    <div class="card text-center" style="margin:5%;">
+    <div class="col-12 col-md-10 mx-auto">
+
+        <div class="card text-center" style="margin:5%;">
+
+            <div class="card-body">
+
+                {# Nazwa firmy #}
+                <h2 id="advert-detail-title" class='card-title'>{{company.name}}</h3>
+
+                {# Lokalizacja firmy #}
+                <h4 id="advert-detail-header">{{company.location}}</h4>
+
+                {# Logo firmy #}
+                {% if company.logo %}
+                    <center>
+                    <div id="company-info-div-image">
+                        <img src="{{company.logo.url}}" class="card-img-top">
+                    </div>
+                    </center>
+                {% endif %}
+
+            </div>
+
+        </div>
 
     </div>
 

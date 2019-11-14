@@ -28,8 +28,7 @@ def advert_create_view(request):
 # RETRIEVE 
 def advert_detail_view(request, advert_id):
     template_name = 'adverts/adverts-detail.html'
-    advert = Advert.objects.filter(Q(id=advert_id))
-    advert = advert[0]
+    advert = get_object_or_404(Advert, id=advert_id)
     advert_maps_url = GoogleMapsLocation(advert.address, advert.city)
     
     context = {

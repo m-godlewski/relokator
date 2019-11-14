@@ -1,0 +1,61 @@
+{% extends 'website/base.html' %}
+
+{% block title %}{{title}}{% endblock  %}
+
+{% block content %}
+    
+    <div class="card text-left" style="margin:5%;">
+
+        <div class="card-header">
+
+            <ul class="nav nav-tabs card-header-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" href="info">Profil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="adverts">Ogłoszenia</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="companies">Firmy</a>
+                </li>
+                {% if request.user.username == username %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="settings">Ustawienia</a>
+                    </li>
+                {% endif %}
+            </ul>
+
+        </div>
+        
+        <div class="card-body text-center" style="margin-top:2%">
+        
+            {% if company %}
+                
+                {# Nazwa firmy #}
+                <h2 id="advert-detail-title" class='card-title'>{{company.name}}</h3>
+
+                {# Lokalizacja firmy #}
+                <h4 id="advert-detail-header">{{company.location}}</h4>
+
+                {# Logo firmy #}
+                {% if company.logo %}
+                    <center>
+                    <div id="company-info-div-image">
+                        <img src="{{company.logo.url}}" class="card-img-top">
+                    </div>
+                    </center>
+                {% endif %}
+
+            
+            {% else %}
+
+                <h3 class="text-center">Nie posiadasz żadnej firmy</h3></br>
+                <center><a class='btn btn-info' href="/companies/new">Zarejestruj swoją firmę</a></center>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+{% endblock  %}
