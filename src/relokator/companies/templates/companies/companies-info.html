@@ -25,6 +25,12 @@
                     </center>
                 {% endif %}
 
+                {# Zarządzanie firmą #}
+                {% if request.user == company.user %}
+                    <hr>
+                    <div class="advert-detail-location"><a class="btn btn-info" href='{{company.get_update_url}}'>Zarządzaj</a></div>
+                {% endif %}
+
             </div>
 
         </div>

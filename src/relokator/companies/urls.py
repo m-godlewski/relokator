@@ -10,5 +10,6 @@ from .views import (
 
 urlpatterns = [
     path('', company_browse_view),
-    path('<str:company_id>/info', company_detail_view),
+    path('<str:company_id>/', company_detail_view),
+    path('<str:company_id>/edit', company_update_view),
 ]

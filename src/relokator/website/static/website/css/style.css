@@ -13,6 +13,10 @@
     padding: 0;
 }
 
+#more-adverts-link{
+    margin: 2% 0 2% 0;
+    text-align: center;
+}
 
 
 /* ########## SEARCHES ########## */
@@ -177,8 +181,6 @@
     width: 20%;
     margin-top: 2%;
     display: inline-block;
-    border-style: solid;
-    border-color: #007bff;
 }
 
 #account-info-data{

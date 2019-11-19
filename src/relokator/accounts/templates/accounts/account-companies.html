@@ -29,24 +29,29 @@
         
         <div class="card-body text-center" style="margin-top:2%">
         
-            {% if company %}
+            {% if object %}
                 
                 {# Nazwa firmy #}
-                <h2 id="advert-detail-title" class='card-title'>{{company.name}}</h3>
+                <h2 id="advert-detail-title" class='card-title'>{{object.name}}</h3>
 
                 {# Lokalizacja firmy #}
-                <h4 id="advert-detail-header">{{company.location}}</h4>
+                <h4 id="advert-detail-header">{{object.location}}</h4>
 
                 {# Logo firmy #}
-                {% if company.logo %}
+                {% if object.logo %}
                     <center>
                     <div id="company-info-div-image">
-                        <img src="{{company.logo.url}}" class="card-img-top">
+                        <img src="{{object.logo.url}}" class="card-img-top">
                     </div>
                     </center>
                 {% endif %}
 
-            
+                {# Zarządzanie firmą #}
+                {% if request.user == object.user %}
+                    <hr>
+                    <div class="advert-detail-location"><a class="btn btn-info" href='{{object.get_update_url}}'>Zarządzaj</a></div>
+                {% endif %}
+
             {% else %}
 
                 <h3 class="text-center">Nie posiadasz żadnej firmy</h3></br>

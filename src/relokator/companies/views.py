@@ -41,8 +41,19 @@ def company_browse_view(request):
 
 # UPDATE
 @login_required
-def company_update_view(request):
-    pass
+def company_update_view(request, company_id):
+    template_name = "companies/companies-update.html"
+    company = get_object_or_404(Company, id=company_id)
+    form = CompanyModelForm(request.POST or None, instance=company)
+
+    if form.is_valid():
+        form.save()
+
+    if request.user.username != str(company.user):
+        return render(request, "website/error_404.html")
+
+    context = {"title": "Edytycja firmy '{}'".format(str(company.name)), "form": form}
+    return render(request, template_name, context)
 
 
 # DELETE

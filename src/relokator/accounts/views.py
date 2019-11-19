@@ -5,6 +5,7 @@ from django.db.models import Q
 from accounts.models import Account
 from adverts.models import Advert
 from companies.models import Company
+
 from .forms import AccountCreationForm, AccountUpdateForm
 
 
@@ -26,12 +27,11 @@ def account_create_view(request):
 def account_info_view(request, account_id):
     template_name = "accounts/account-info.html"
     user = Account.objects.get(username=account_id)
-    qs = Advert.objects.filter(Q(user=user))
 
     context = {
         "title": f"Profil użytkownika {account_id}",
         "username": account_id,
-        "user": user,
+        "object": user,
     }
     return render(request, template_name, context)
 
@@ -52,12 +52,12 @@ def account_adverts_view(request, account_id):
 def account_companies_view(request, account_id):
     template_name = "accounts/account-companies.html"
     user = Account.objects.get(username=account_id)
-    company = get_object_or_404(Company, user=user)
+    company = Company.objects.filter(user=user.id).first()
 
     context = {
         "title": f"Firma użytkownika {account_id}",
         "username": account_id,
-        "company": company,
+        "object": company
     }
     return render(request, template_name, context)
 

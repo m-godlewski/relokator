@@ -29,22 +29,22 @@
 
         <div id="account-info-body" class="card-body">
 
-            <h2>Profil użytkownika <b>{{user.username}}</b></h2>
+            <h2>Profil użytkownika <b>{{object.username}}</b></h2>
 
             <hr>
 
             <div id="account-info-div-data">
                 <div id="account-info-data">
-                    <h5><span class="far fa-user"></span>&#9; {{user.first_name}} {{user.last_name}}</h5>
-                    <h5><span class="far fa-envelope"></span>&#9; {{user.email}}</h5>
-                    <h5><span class="fas fa-phone"></span>&#9; +48 {{user.phone_number}}</h5>
-                    <h5><span class="far fa-calendar-alt"></span>&#9; {{user.join_date}}</h5>
+                    <h5><span class="far fa-user"></span>&#9; {{object.first_name}} {{object.last_name}}</h5>
+                    <h5><span class="far fa-envelope"></span>&#9; {{object.email}}</h5>
+                    <h5><span class="fas fa-phone"></span>&#9; +48 {{object.phone_number}}</h5>
+                    <h5><span class="far fa-calendar-alt"></span>&#9; {{object.join_date}}</h5>
                 </div>
             </div>
 
             <div id="account-info-div-image">
-                {% if user.profile_image %}
-                    <img src="{{user.profile_image.url}}" width="100%" height="auto">
+                {% if object.profile_image %}
+                    <img src="{{object.profile_image.url}}" width="100%" height="auto">
                 {% endif %}
             </div>
 

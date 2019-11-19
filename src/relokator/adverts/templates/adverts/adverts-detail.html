@@ -63,7 +63,7 @@
                 {# Zarządzanie ogłoszeniem #}
                 {% if request.user == advert.user %}
                     <hr>
-                    <div class="advert-detail-location"><a class="btn btn-info" href='{{advert.get_edit_url}}'>Edytuj</a></div>
+                    <div class="advert-detail-location"><a class="btn btn-info" href='{{advert.get_update_url}}'>Edytuj</a></div>
                     <div class="advert-detail-location"><a class="btn btn-danger" href='{{advert.get_delete_url}}'>Usuń</a></div>
                 {% endif %}
 
