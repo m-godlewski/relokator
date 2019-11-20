@@ -3,6 +3,8 @@ from django.db import models
 from django.db.models import Q
 from django.utils import timezone
 
+from maps.models import GoogleMaps
+
 
 User = settings.AUTH_USER_MODEL
 
@@ -26,6 +28,7 @@ class AdvertQuerySet(models.QuerySet):
 
 
 class AdvertManager(models.Manager):
+    
     def get_queryset(self):
         return AdvertQuerySet(self.model, using=self._db)
 
@@ -51,6 +54,9 @@ class Advert(models.Model):
     image [image] - zdjęcie #TODO dodaj możliwość dodania kilku zdjęć
     """
 
+    objects = AdvertManager()   # advert manager, used for search mostyl
+    location = GoogleMaps()     # adver google maps location object
+
     CATEGORY_CHOICES = (
         ("Dom", "Dom"),
         ("Mieszkanie", "Mieszkanie"),
@@ -63,22 +69,27 @@ class Advert(models.Model):
     user = models.ForeignKey(User, default=1, null=True, on_delete=models.CASCADE)
     title = models.CharField(max_length=120, verbose_name="Tytuł")
     content = models.TextField(null=True, blank=True, verbose_name="Opis")
-    category = models.CharField(
-        max_length=10, choices=CATEGORY_CHOICES, verbose_name="Kategoria"
-    )
-    advert_type = models.CharField(
-        max_length=10, choices=TYPE_CHOICES, verbose_name="Typ"
-    )
+    category = models.CharField(max_length=10, choices=CATEGORY_CHOICES, verbose_name="Kategoria")
+    advert_type = models.CharField(max_length=10, choices=TYPE_CHOICES, verbose_name="Typ")
     create_date = models.DateTimeField(default=timezone.now)
     furnished = models.BooleanField(default=False, verbose_name="Umeblowanie")
     city = models.CharField(max_length=100, blank=False, verbose_name="Miasto")
     address = models.CharField(max_length=100, blank=False, verbose_name="Adres")
     price = models.PositiveIntegerField(blank=False, null=False, verbose_name="Cena")
-    image = models.ImageField(
-        upload_to="images/", blank=True, null=True, verbose_name="Zdjęcia"
-    )
+    image = models.ImageField(upload_to="images/", blank=True, null=True, verbose_name="Zdjęcia")
 
-    objects = AdvertManager()
+    # location fields (hidden from user view)
+    map_url = models.CharField(max_length=200, default="")
+    map_coord_x = models.FloatField(default=0)
+    map_coord_y = models.FloatField(default=0) 
+
+    def save(self, *args, **kwargs):
+        # saving google maps url created by google maps object to model field 
+        self.map_url = self.location.get_location_map_url(self.city, self.address)
+        # saving google maps url created by google maps object to model field 
+        self.map_coord_x, self.map_coord_y = self.location.get_location_coords(self.city, self.address)
+        # overriding base saving function
+        super(Advert, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
         return f"/adverts/{self.id}"

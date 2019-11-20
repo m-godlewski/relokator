@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
-import os
+import os, logging
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -140,3 +140,10 @@ STATIC_URL = '/static/'
 # Media files(Upladed images)
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media') 
 MEDIA_URL = '/media/'
+
+
+# Logging settings
+logging.basicConfig(
+    level = logging.DEBUG,
+    format = '%(levelname)s %(message)s',
+)

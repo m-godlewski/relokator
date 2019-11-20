@@ -9,9 +9,11 @@
         <div class="card-body">
 
             <h2 style="padding-left:2%"><b>{{title}}</b></h2>
+
             <hr>
+            
             <div style="margin:auto" class='row'>
-                {% for object in query %}
+                {% for object in adverts %}
                     {% include 'adverts/adverts-inline.html' with advert=object %}
                 {% endfor %}
             </div>

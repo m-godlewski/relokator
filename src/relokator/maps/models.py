@@ -1,22 +1,65 @@
 from django.db import models
+import requests
 
 
-class GoogleMaps:
-    google_maps_url = "http://maps.google.com/maps"
+class GoogleMaps(object):
+    """
+        Google Maps class
 
+        Main purpose of this class is constructing a url's for google maps
+        and retrieving data from google maps serivces.
 
-class GoogleMapsLocation(GoogleMaps):
+    """
+
+    # google maps url, used for displaying location in google maps.
+    GOOGLE_MAPS_URL = "http://maps.google.com/maps"
+
+    # google geolocation url, used for retrieving x and y of address
+    GOOGLE_GEOLOCATION_URL = "https://maps.googleapis.com/maps/api/geocode/json"
+
     
-    def __init__(self, address, city):
-        self.address = address
-        self.city = city
+    def preprocess_address(self, city, address):
+        # convert address and city parameter to word plus joined string
+        return f'{address}+{city}'
 
-    def preprocess_location_string(self):
-        if ' ' in self.address:
-            self.address.replace(' ', '+')
-        if ' ' in self.city:
-            self.city.replace(' ', '+')
 
-    def get_location_url(self):
-        self.location_url = f'{self.google_maps_url}?q={self.address}+{self.city}&output=embed'
-        return self.location_url
+    def get_location_map_url(self, city, address):
+        # returning google maps url that show location given in parameters
+        return f'{self.GOOGLE_MAPS_URL}?q={self.preprocess_address(city, address)}&output=embed'
+
+
+    def get_location_coords(self, city, address):
+        """ function requesting for x and y coords of location.
+        
+        Function returns:
+        x = longitude, y = latitude of location given in arguments.
+        """
+
+        # google geocoding api request
+        response = requests.get(
+            url = self.GOOGLE_GEOLOCATION_URL,
+            params = {
+                # preprocessing adress
+                'address': self.preprocess_address(city, address), 
+                # api key # TODO storing in DB for security!
+                'key': 'AIzaSyC5rVKcoTfCep0GE7wnJc56P0ZfNbuLto8'
+            }
+        )
+
+        # retrieving x(longitude) and y(latitude) coords from request
+        geolocation_data = response.json()
+        x = geolocation_data['results'][0]['geometry']['location']['lng']
+        y = geolocation_data['results'][0]['geometry']['location']['lat']
+        return x, y
+
+
+    def calculate_distance(self, location_a, location_b):
+        """ function calculates distance between two (a and b) locations.
+        """
+        pass
+
+
+    def find_nearby_objects(self, location, type):
+        """ function searching for objects of given type nearby of given location
+        """
+        pass

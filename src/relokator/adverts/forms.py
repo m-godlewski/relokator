@@ -8,12 +8,8 @@ class AdvertCreateForm(forms.Form):
     content = forms.CharField(widget=forms.Textarea, required=True)
     city = forms.CharField(required=True)
     address = forms.CharField(required=True)
-    category = forms.ChoiceField(
-        choices=Advert.CATEGORY_CHOICES, initial="Brak", required=True
-    )
-    advert_type = forms.ChoiceField(
-        choices=Advert.TYPE_CHOICES, initial="Brak", required=True
-    )
+    category = forms.ChoiceField(choices=Advert.CATEGORY_CHOICES, initial="Brak", required=True)
+    advert_type = forms.ChoiceField(choices=Advert.TYPE_CHOICES, initial="Brak", required=True)
     furnished = forms.BooleanField(initial=False)
     price = forms.IntegerField(min_value=1, required=True)
 
@@ -32,4 +28,3 @@ class AdvertModelForm(forms.ModelForm):
             "price",
             "image",
         ]
-

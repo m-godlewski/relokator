@@ -11,23 +11,30 @@ class AccountCreationForm(UserCreationForm):
     email = forms.EmailField(max_length=100, required=True, label="E-mail")
     first_name = forms.CharField(max_length=100, required=True, label="Imię")
     last_name = forms.CharField(max_length=100, required=False, label="Nazwisko")
-    phone_number = forms.RegexField(regex=r'^\+?1?\d{9,15}$', max_length=20, required=True, label="Numer telefonu")
-    
+    phone_number = forms.RegexField(regex=r"^\+?1?\d{9,15}$", max_length=20, required=True, label="Numer telefonu")
+
     def __init__(self, *args, **kwargs):
         super(AccountCreationForm, self).__init__(*args, **kwargs)
-        for fieldname in ['username', 'password1', 'password2']:
+        # set off password and username tips in register form
+        for fieldname in ["username", "password1", "password2"]:
             self.fields[fieldname].help_text = None
-        self.fields['password1'].verbose_name = "Hasło"
 
     class Meta:
         model = Account
-        fields = ('username', 'first_name', 'last_name', 'email', 'phone_number', 'profile_image')
+        fields = (
+            "username",
+            "first_name",
+            "last_name",
+            "email",
+            "phone_number",
+            "profile_image",
+        )
 
 
 class AccountUpdateForm(UserChangeForm):
 
     password = None
-    
+
     class Meta:
         model = Account
-        fields = ('first_name', 'last_name', 'email', 'phone_number', 'profile_image')
+        fields = ("first_name", "last_name", "email", "phone_number", "profile_image")

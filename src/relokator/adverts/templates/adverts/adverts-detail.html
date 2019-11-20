@@ -56,15 +56,36 @@
 
                 <hr>
 
+                {# Firmy przeprowadzkowe #}
+                {% if companies %}
+
+                    <div>
+                    <h4 class="card-subtitle mb-3 text-bold">Firmy przeprowadzkowe</h4>
+                    {% for company in companies %}
+                        <a href="/companies/{{company.id}}">
+                        <div id="advert-detail-company-image">
+                            <img src="{{company.logo.url}}" class="card-img-top">
+                        </div>
+                        </a>
+                    {% endfor %}
+                    </div>
+
+                <hr>
+
+                {% endif %}
+
                 {# Metadane, data wystawienia i autor #}                
                 <div class="advert-detail-location"><small>Wystawiono: <b>{{advert.create_date}}</b></small></div>
                 <div class="advert-detail-location"><small>Autor: <a href="/accounts/{{advert.user}}/info">{{advert.user}}</a></small></div>
 
+                <hr>
+
                 {# Zarządzanie ogłoszeniem #}
                 {% if request.user == advert.user %}
-                    <hr>
                     <div class="advert-detail-location"><a class="btn btn-info" href='{{advert.get_update_url}}'>Edytuj</a></div>
                     <div class="advert-detail-location"><a class="btn btn-danger" href='{{advert.get_delete_url}}'>Usuń</a></div>
+                {% else %}
+                    <div class="advert-detail-contact"><a class="btn btn-info" href=''>Skontaktuj się</a></div>
                 {% endif %}
 
             </div>

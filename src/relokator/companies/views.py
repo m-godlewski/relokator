@@ -10,11 +10,13 @@ from .forms import CompanyModelForm
 @login_required
 def company_create_view(request):
     template_name = "companies/companies-create.html"
+
+    # get empty creation form
     form = CompanyModelForm(request.POST or None, request.FILES or None)
 
     if form.is_valid():
         obj = form.save(commit=False)
-        obj.user = request.user
+        obj.user = request.user # setting current user as owner of company
         form.save()
         form = CompanyModelForm()
 
@@ -25,6 +27,8 @@ def company_create_view(request):
 # RETRIEVE
 def company_detail_view(request, company_id):
     template_name = "companies/companies-info.html"
+
+    # getting company by company_id
     company = get_object_or_404(Company, id=company_id)
 
     context = {"title": company.name, "company": company}
@@ -33,9 +37,11 @@ def company_detail_view(request, company_id):
 
 def company_browse_view(request):
     template_name = "companies/companies-browse.html"
-    query = Company.objects.all()
 
-    context = {"title": "Firmy przeprowadzkowe", "query": query}
+    # get all companies
+    companies = Company.objects.all()
+
+    context = {"title": "Firmy przeprowadzkowe", "companies": companies}
     return render(request, template_name, context)
 
 
@@ -43,12 +49,17 @@ def company_browse_view(request):
 @login_required
 def company_update_view(request, company_id):
     template_name = "companies/companies-update.html"
+
+    # get company by company_id
     company = get_object_or_404(Company, id=company_id)
+
+    # fill form with company data
     form = CompanyModelForm(request.POST or None, instance=company)
 
     if form.is_valid():
         form.save()
 
+    # if current user is not owner of company, redirect to error page
     if request.user.username != str(company.user):
         return render(request, "website/error_404.html")
 

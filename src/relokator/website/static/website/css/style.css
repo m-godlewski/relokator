@@ -150,6 +150,18 @@
     text-align: center;
 }
 
+.advert-detail-contact{
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+}
+
+#advert-detail-company-image{
+    width: 30%;
+    display: inline-block;
+    margin: 0 2% 0 2%;
+}
+
 #google-maps-frame{
     width: 100%;
     margin-top: 2%;
@@ -194,6 +206,7 @@
 #company-info-div-image{
     width: 30%;
     margin: 2% 0 2% 0;
+
 }
 
 

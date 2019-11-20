@@ -13,7 +13,7 @@
             <hr>
             
             <div style="margin:auto" class='row'>
-                {% for object in query %}
+                {% for object in companies %}
                     {% include 'companies/companies-inline.html' with company=object %}
                 {% endfor %}
             </div>
