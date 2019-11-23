@@ -47,7 +47,30 @@
         <input class="searchbar-input" type="text" class="form-control" id="price_max" name='price_max' placeholder="Cena maksymalna">
       </div>
     </div>
-  
+
+    <div id="searchbar-row" class="form-row">
+      <div class="col">
+        <select class="searchbar-select" name="location_priority" id="location_priority">
+          <option selected disabled>Jakie niedalekie obiekty Cię interesują?</option>
+          <option value>Wszystkie</option>
+          <option value="supermarket">Supermarkety</option>
+          <option value="gym">Siłownie</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="searchbar-row" class="form-row">
+      <div class="col">
+        <select class="searchbar-select" name="location_priority_radius" id="location_priority_radius">
+          <option selected disabled>W jakiej odległości</option>
+          <option value>Obojętnie</option>
+          <option value="500">500m</option>
+          <option value="1000">1km</option>
+          <option value="3000">3km</option>
+        </select>
+      </div>
+    </div>
+
     {# search button #}
     <div id="searchbar-row-button" class="form-row">    
       <button id="searchbar-button-search" class="btn btn-primary my-2 my-sm-0" type="submit">Szukaj</button>
