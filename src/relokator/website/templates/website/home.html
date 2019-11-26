@@ -12,12 +12,14 @@
 
     <!-- Adverts -->
     <h2 style="padding-left:1%"><b>Najnowsze ogłoszenia</b></h2>
+    <hr>
     <div style="margin:auto" class='row'>
         {% for object in qs %}
             {% include 'adverts/adverts-inline.html' with advert=object truncate=True detail=False settings=False %}
         {% endfor %}
     </div>
-    <a href="/adverts"><div id="more-adverts-link" class="card"><h2>Więcej ogłoszeń</h2></div></a>
-    
+
+    <!-- More adverts button -->
+    <a href="/adverts"><div id="more-adverts-link"><h2>Więcej ogłoszeń</h2></div></a>
     
 {% endblock  %}

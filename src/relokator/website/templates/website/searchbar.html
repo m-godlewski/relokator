@@ -4,13 +4,13 @@
 
     <div id="serchbar-row-city" class="form-row">
       {# text search input #}
-      <input class="searchbar-input-city" type="search" name='q' placeholder="Podaj miasto" aria-label="Search">
+      <input id="searchbar-input-city" class="form-control" type="search" name='q' placeholder="Podaj miasto" aria-label="Search">
     </div>
 
     {# Advert.category #} 
     <div id="searchbar-row" class="form-row">    
       <div class="col">
-        <select class="searchbar-select" name='category' id="category">
+        <select id="searchbar-select" class="form-control" name='category' id="category">
           <option selected disabled>Kategoria</option>
           <option value>Wszystkie</option>
           <option value="Dom">Dom</option>
@@ -20,7 +20,7 @@
       </div>
       {# Adver.advert_type #}
       <div class="col">
-        <select class="searchbar-select" name='advert_type' id="advert_type">
+        <select id="searchbar-select" class="form-control" name='advert_type' id="advert_type">
           <option selected disabled>Typ</option>
           <option value>Wszystkie</option>
           <option value="Wynajem">Wynajem</option>
@@ -29,7 +29,7 @@
       </div>
       {# Advert.furnished #}
       <div class="col">
-        <select class="searchbar-select" name='furnished' id="furnished">
+        <select id="searchbar-select" class="form-control" name='furnished' id="furnished">
           <option selected disabled>Umeblowanie</option>
           <option value>Wszystkie</option>
           <option value="Tak">Tak</option>
@@ -37,38 +37,36 @@
         </select>
       </div>
     </div>
-  
+
     {# Cena minimalna i maksymalna #}
     <div id="searchbar-row" class="form-row">
       <div class="col">
-        <input class="searchbar-input" type="text" class="form-control" id="price_min" name='price_min' placeholder="Cena minimalna">
+        <input id="searchbar-input" class="form-control" type="text" class="form-control" id="price_min" name='price_min' placeholder="Cena minimalna">
       </div>
       <div class="col">
-        <input class="searchbar-input" type="text" class="form-control" id="price_max" name='price_max' placeholder="Cena maksymalna">
+        <input id="searchbar-input" class="form-control" type="text" class="form-control" id="price_max" name='price_max' placeholder="Cena maksymalna">
       </div>
     </div>
 
+    {# Priorytety lokalizacji #}
     <div id="searchbar-row" class="form-row">
       <div class="col">
-        <select class="searchbar-select" name="location_priority" id="location_priority">
+        <select id="searchbar-select" class="form-control" name="location_priority" id="location_priority">
           <option selected disabled>Jakie niedalekie obiekty Cię interesują?</option>
           <option value>Wszystkie</option>
           <option value="supermarket">Supermarkety</option>
           <option value="gym">Siłownie</option>
         </select>
       </div>
-    </div>
 
-    <div id="searchbar-row" class="form-row">
       <div class="col">
-        <select class="searchbar-select" name="location_priority_radius" id="location_priority_radius">
+        <select id="searchbar-select" class="form-control" name="location_priority_radius" id="location_priority_radius">
           <option selected disabled>W jakiej odległości</option>
           <option value>Obojętnie</option>
           <option value="500">500m</option>
           <option value="1000">1km</option>
           <option value="3000">3km</option>
         </select>
-      </div>
     </div>
 
     {# search button #}

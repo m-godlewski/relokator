@@ -72,7 +72,7 @@ class GoogleMaps(object):
         """ function filtering given list of adverts by location priority given by user
         """
 
-        # lista ogłoszeń spełniająca kryteria lokalizacji podane przez użytkownika
+        # list of adverts matching location criteria given by user
         filtred_list_of_adverts = []
 
         print(object_type)

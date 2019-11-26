@@ -54,11 +54,12 @@ def search_view(request):
         SearchQuery.objects.create(user=user, query=query)
         adverts_list = Advert.objects.search(query=query, parameters=parameters)
 
-        adverts_list =SearchQuery.location.filter_list_of_adverts(
-            list(adverts_list),
-            parameters['location_priority'],
-            parameters['location_priority_radius']
-        )
+        # COMMENT THIS DURING FRONTEND TEST TO AVOID REQUEST TO GOOGLE API
+        # adverts_list =SearchQuery.location.filter_list_of_adverts(
+        #     list(adverts_list),
+        #     parameters['location_priority'],
+        #     parameters['location_priority_radius']
+        # )
 
         context['adverts_list'] = adverts_list
         context['counter'] = len(adverts_list)
