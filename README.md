@@ -1,5 +1,5 @@
 # relokator
-## v0.7.5.0
+## v0.7.5
 
 - companies added
 - added google maps integration
