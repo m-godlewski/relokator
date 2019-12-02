@@ -1,3 +1,5 @@
+import os
+from core.settings import BASE_DIR
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
@@ -20,6 +22,10 @@ def advert_create_view(request):
         obj.user = request.user # setting current user as owner of advert
         form.save()
         form = AdvertModelForm()
+
+    # after successfull creation redirect to user adverts page
+    if request.method == "POST":
+        return redirect(f"/accounts/{request.user}/adverts")
 
     context = {"form": form}
     return render(request, template_name, context)
@@ -63,7 +69,11 @@ def advert_update_view(request, advert_id):
     advert = get_object_or_404(Advert, id=advert_id)
 
     # fill form with advert data
-    form = AdvertModelForm(request.POST or None, instance=advert)
+    form = AdvertModelForm(
+        data = request.POST or None,
+        files = request.FILES,
+        instance=advert
+    )
 
     if form.is_valid():
         form.save()
@@ -86,14 +96,19 @@ def advert_delete_view(request, advert_id):
 
     # get advert by advert_id
     advert = get_object_or_404(Advert, id=advert_id)
-
     # if current user is not owner of advert, redirect to error page
     if request.user.username != str(advert.user):
         return render(request, "website/error_404.html")
 
     # if user press delete button, delete advert and redirect
     if request.method == "POST":
-        advert.delete()
+
+        advert.delete() # object delete
+
+        if advert.image:    # if adver has image
+            image_path = BASE_DIR + advert.image.url    # image file path
+            os.remove(image_path)   # delete file
+    
         return redirect(f"/accounts/{request.user}/adverts")
 
     context = {"object": advert}

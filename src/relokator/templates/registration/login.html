@@ -4,9 +4,9 @@
 
 {% block content %}
 
-  <div id="login_register_card" class="card text-center">
+  <div id="login_card" class="card text-center">
 
-    <div class="card-body" style="padding:15%">
+    <div class="card-body" style="padding-bottom:5%">
 
       {% if request.user.is_authenticated%}
 
@@ -14,6 +14,8 @@
         <a class='btn btn-info' href="/">Wróć do strony głównej</a>
 
       {% else %}
+
+        <h2 id="login-form-title">Logowanie</h2>
 
         <form method="POST">
 
@@ -25,7 +27,7 @@
             <div class="fieldWrapper">
                 {{ form.username.errors }}
                 <label for="{{ form.username.id_for_label }}">Login:</label>
-                {{ form.username }}
+                <div id="login-form-input">{{ form.username }}</div>
             </div>
           </div>
 
@@ -33,7 +35,7 @@
             <div class="fieldWrapper">
                 {{ form.password.errors }}
                 <label for="{{ form.password.id_for_label }}">Hasło:</label>
-                {{ form.password }}
+                <div id="login-form-input">{{ form.password }}</div>
             </div>
           </div>
 

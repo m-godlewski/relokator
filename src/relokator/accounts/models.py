@@ -19,7 +19,7 @@ class Account(AbstractUser):
     first_name = models.CharField(max_length=100, unique=False, blank=False, verbose_name="Imię")
     last_name = models.CharField(max_length=100, unique=False, blank=True, verbose_name="Nazwisko")
     join_date = models.DateTimeField(default=timezone.now)
-    email = models.EmailField(max_length=100, unique=True, verbose_name="E-mail")
+    email = models.EmailField(max_length=100, unique=True, blank=False, verbose_name="E-mail")
     phone_number = models.CharField(max_length=20, unique=True, blank=False, verbose_name="Numer telefonu")
     profile_image = models.ImageField(
         upload_to="profile_images/",

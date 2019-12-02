@@ -1,5 +1,8 @@
 # relokator
-## v0.6.0
+## v0.7.5.0
 
-- custom user model
-- profile view updated
+- companies added
+- added google maps integration
+- frontend update
+- bug fixes
+

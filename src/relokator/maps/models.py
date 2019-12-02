@@ -1,5 +1,5 @@
 from django.db import models
-import requests
+import requests, logging
 
 
 class GoogleMaps(object):
@@ -37,36 +37,29 @@ class GoogleMaps(object):
         Function returns:
         x = longitude, y = latitude of location given in arguments.
         """
+        try:
 
-        # google geocoding api request
-        response = requests.get(
-            url = self.GOOGLE_GEOLOCATION_URL,
-            params = {
-                # preprocessing adress
-                'address': self.preprocess_address(city, address), 
-                # api key # TODO storing in DB for security!
-                'key': 'AIzaSyC5rVKcoTfCep0GE7wnJc56P0ZfNbuLto8'
-            }
-        )
+            # google geocoding api request
+            response = requests.get(
+                url = self.GOOGLE_GEOLOCATION_URL,
+                params = {
+                    # preprocessing adress
+                    'address': self.preprocess_address(city, address), 
+                    # api key # TODO storing in DB for security!
+                    'key': 'AIzaSyC5rVKcoTfCep0GE7wnJc56P0ZfNbuLto8'
+                }
+            )
 
-        # retrieving x(longitude) and y(latitude) coords from request
-        geolocation_data = response.json()
-        x = geolocation_data['results'][0]['geometry']['location']['lng']
-        y = geolocation_data['results'][0]['geometry']['location']['lat']
-        return x, y
+            # retrieving x(longitude) and y(latitude) coords from request
+            geolocation_data = response.json()
+            x = geolocation_data['results'][0]['geometry']['location']['lng']
+            y = geolocation_data['results'][0]['geometry']['location']['lat']
 
-    '''
-    def calculate_distance(self, location_a, location_b):
-        """ function calculates distance between two (a and b) locations.
-        """
-        pass
+        except Exception as e:
+            logging.error(f'GoogleMaps.get_location_coords error -> {e}')
+        else:
+            return x, y
 
-
-    def find_nearby_objects(self, location, object_type):
-        """ function searching for objects of given type nearby of given location
-        """
-        pass
-    '''
 
     def filter_list_of_adverts(self, list_of_adverts, object_type, radius):
         """ function filtering given list of adverts by location priority given by user

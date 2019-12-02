@@ -1,14 +1,22 @@
 <div id="searchbar">
 
   <form class="form-inline my-2 my-lg-0" action='/search/'>
+    
+    <div id="searchbar-row-title">
+      <h2>Głodny na jabłka</h2>
+    </div>
 
+    {# Adver city #}
     <div id="serchbar-row-city" class="form-row">
       {# text search input #}
       <input id="searchbar-input-city" class="form-control" type="search" name='q' placeholder="Podaj miasto" aria-label="Search">
     </div>
 
-    {# Advert.category #} 
+    <div class="searchbar-delimiter"></div>
+
+    {# Advert parameters #}
     <div id="searchbar-row" class="form-row">    
+      {# Advert.category #} 
       <div class="col">
         <select id="searchbar-select" class="form-control" name='category' id="category">
           <option selected disabled>Kategoria</option>
@@ -38,7 +46,7 @@
       </div>
     </div>
 
-    {# Cena minimalna i maksymalna #}
+    {# Maximum and minimum advert price #}
     <div id="searchbar-row" class="form-row">
       <div class="col">
         <input id="searchbar-input" class="form-control" type="text" class="form-control" id="price_min" name='price_min' placeholder="Cena minimalna">
@@ -48,8 +56,12 @@
       </div>
     </div>
 
-    {# Priorytety lokalizacji #}
+    <div class="searchbar-delimiter"></div>
+    
+    {# Location priority #}
+    {# PL 0 #}
     <div id="searchbar-row" class="form-row">
+
       <div class="col">
         <select id="searchbar-select" class="form-control" name="location_priority" id="location_priority">
           <option selected disabled>Jakie niedalekie obiekty Cię interesują?</option>
@@ -63,10 +75,60 @@
         <select id="searchbar-select" class="form-control" name="location_priority_radius" id="location_priority_radius">
           <option selected disabled>W jakiej odległości</option>
           <option value>Obojętnie</option>
-          <option value="500">500m</option>
-          <option value="1000">1km</option>
-          <option value="3000">3km</option>
+          <option value="500">do 500m</option>
+          <option value="1000">do 1km</option>
+          <option value="3000">do 3km</option>
         </select>
+      </div>
+
+    </div>
+
+    {# PL 1 #}
+    <div id="searchbar-row" class="form-row">
+    
+      <div class="col">
+        <select id="searchbar-select" class="form-control" name="location_priority_1" id="location_priority_1">
+          <option selected disabled>Jakie niedalekie obiekty Cię interesują?</option>
+          <option value>Wszystkie</option>
+          <option value="supermarket">Supermarkety</option>
+          <option value="gym">Siłownie</option>
+        </select>
+      </div>
+
+      <div class="col">
+        <select id="searchbar-select" class="form-control" name="location_priority_radius_1" id="location_priority_radius_1">
+          <option selected disabled>W jakiej odległości</option>
+          <option value>Obojętnie</option>
+          <option value="500">do 500m</option>
+          <option value="1000">do 1km</option>
+          <option value="3000">do 3km</option>
+        </select>
+      </div>
+
+    </div>
+
+    {# PL 2 #}
+    <div id="searchbar-row" class="form-row">
+    
+      <div class="col">
+        <select id="searchbar-select" class="form-control" name="location_priority_2" id="location_priority_2">
+          <option selected disabled>Jakie niedalekie obiekty Cię interesują?</option>
+          <option value>Wszystkie</option>
+          <option value="supermarket">Supermarkety</option>
+          <option value="gym">Siłownie</option>
+        </select>
+      </div>
+
+      <div class="col">
+        <select id="searchbar-select" class="form-control" name="location_priority_radius_2" id="location_priority_radius_2">
+          <option selected disabled>W jakiej odległości</option>
+          <option value>Obojętnie</option>
+          <option value="500">do 500m</option>
+          <option value="1000">do 1km</option>
+          <option value="3000">do 3km</option>
+        </select>
+      </div>
+
     </div>
 
     {# search button #}

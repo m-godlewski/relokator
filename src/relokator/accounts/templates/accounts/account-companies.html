@@ -4,7 +4,7 @@
 
 {% block content %}
     
-    <div class="card text-left" style="margin:5%;">
+    <div id="account-info-card" class="card text-center">
 
         <div class="card-header">
 
@@ -30,6 +30,10 @@
         <div class="card-body text-center" style="margin-top:2%">
         
             {% if object %}
+
+                <h2 class="text-center">Firma użytkownika <b>{{username}}</b></h1>
+
+                <hr>
                 
                 {# Nazwa firmy #}
                 <h2 id="advert-detail-title" class='card-title'>{{object.name}}</h3>
