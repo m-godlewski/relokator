@@ -29,11 +29,60 @@
 
         <h2 class="text-center">Ustawienia profilu<b>{{username}}</b></h1>
 
+        <hr>
+
         <form method="POST" enctype="multipart/form-data">
+   
             {% csrf_token %}
-            {{ form.as_p }}
-            <hr>
-            <button class="btn btn-primary" type="submit">Zapisz zmiany</button>
+            
+            {{ form.non_field_errors }}
+
+            {# Name #}
+            <div class="form-group">
+            <div class="fieldWrapper">
+                {{ form.first_name.errors }}
+                <label for="{{ form.first_name.id_for_label }}">Imię:</label>
+                <div id="login-form-input">{{ form.first_name }}</div>
+            </div>
+            </div>
+
+            {# Surname #}
+            <div class="form-group">
+            <div class="fieldWrapper">
+                {{ form.last_name.errors }}
+                <label for="{{ form.last_name.id_for_label }}">Nazwisko:</label>
+                <div id="login-form-input">{{ form.last_name }}</div>
+            </div>
+            </div>
+
+            {# Email #}
+            <div class="form-group">
+            <div class="fieldWrapper">
+                {{ form.email.errors }}
+                <label for="{{ form.email.id_for_label }}">E-mail:</label>
+                <div id="login-form-input">{{ form.email }}</div>
+            </div>
+            </div>
+
+            {# Phone number #}
+            <div class="form-group">
+            <div class="fieldWrapper">
+                {{ form.phone_number.errors }}
+                <label for="{{ form.phone_number.id_for_label }}">Numer telefonu:</label>
+                <div id="login-form-input">{{ form.phone_number }}</div>
+            </div>
+            </div>
+
+            {# Profile photo #}
+            <div class="form-group">
+            <div class="fieldWrapper">
+                {{ form.profile_image.errors }}
+                <label for="{{ form.profile_image.id_for_label }}">Zdjęcie profilowe:</label>
+                <div id="login-form-input-image">{{ form.profile_image }}</div>
+            </div>
+            </div>
+
+            <button style="margin:2%;" class="btn btn-primary" type="submit">Zapisz zmiany</button>
         </form>
 
     </div>
