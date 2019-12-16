@@ -4,7 +4,7 @@ from adverts.models import Advert
 from .models import SearchQuery
 
 
-def get_search_parameters(request):
+def get_search_parameters(request) -> dict:
     """ retrieving search parameters from http request
     
     Arguments:

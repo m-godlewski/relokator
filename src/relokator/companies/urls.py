@@ -1,5 +1,4 @@
 from django.urls import path
-
 from .views import (
     company_create_view,
     company_detail_view,
@@ -9,7 +8,10 @@ from .views import (
 )
 
 urlpatterns = [
+    # url of browse view all companies
     path("", company_browse_view),
+    # url of detail view selected company
     path("<str:company_id>/", company_detail_view),
+    # url of update view selected company
     path("<str:company_id>/edit", company_update_view),
 ]

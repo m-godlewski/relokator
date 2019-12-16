@@ -6,12 +6,14 @@ User = settings.AUTH_USER_MODEL
 
 
 class Company(models.Model):
-    """Model firmy przeprowadzkowej
+    """ 
+        Class of relocation company
 
-    user [integer] - użytkownik będący właścicielem firmy
-    name [char] - nazwa firmy
-    location [char] - obszar działania firmy
-    logo [image] - logo firmy
+        user [integer] - company owner
+        name [char] - company name
+        location [char] - company working area
+        logo [image] - company logo
+
     """
 
     user = models.ForeignKey(User, default=1, null=True, on_delete=models.CASCADE)
@@ -20,8 +22,20 @@ class Company(models.Model):
     logo = models.ImageField(upload_to="company_logo/", blank=True, null=True, verbose_name="Logo")
     tariff = models.ImageField(upload_to="company_tariff/", blank=True, null=True, verbose_name="Cennik")
 
-    def get_absolute_url(self):
+    def get_absolute_url(self) -> str:
+        """ method returning absolute url for company
+
+        Returns:
+            absolute url for company
+
+        """
         return f"/companies/{self.id}"
 
-    def get_update_url(self):
+    def get_update_url(self) -> str:
+        """ method returning update url for company
+        
+        Returns:
+            edit url for company
+
+        """
         return f"{self.get_absolute_url()}/edit"

@@ -9,9 +9,16 @@ from .forms import CompanyModelForm
 # CREATE
 @login_required
 def company_create_view(request):
+    """ company creation view
+    
+    Returns:
+        rendering company registration template
+
+    """
+
     template_name = "companies/companies-create.html"
 
-    # get empty creation form
+    # getting empty creation form
     form = CompanyModelForm(request.POST or None, request.FILES or None)
 
     if form.is_valid():
@@ -25,7 +32,17 @@ def company_create_view(request):
 
 
 # RETRIEVE
-def company_detail_view(request, company_id):
+def company_detail_view(request, company_id:str):
+    """ company detail view
+
+    Arguments:
+        company_id {[string]} -- [id of company]
+    
+    Returns:
+        rendering company detail template with company data
+
+    """
+
     template_name = "companies/companies-info.html"
 
     # getting company by company_id
@@ -36,6 +53,13 @@ def company_detail_view(request, company_id):
 
 
 def company_browse_view(request):
+    """ companies browsing view
+
+    Returns:
+        rendering companies browsing view
+
+    """
+
     template_name = "companies/companies-browse.html"
 
     # get all companies
@@ -47,7 +71,16 @@ def company_browse_view(request):
 
 # UPDATE
 @login_required
-def company_update_view(request, company_id):
+def company_update_view(request, company_id:str):
+    """ company update view
+
+    Arguments:
+        company_id {[string]} -- [id of company]
+    
+    Returns:
+        rendering company update template with company data in form
+
+    """
     template_name = "companies/companies-update.html"
 
     # get company by company_id
@@ -69,5 +102,15 @@ def company_update_view(request, company_id):
 
 # DELETE
 @login_required
-def company_delete_view(request):
+def company_delete_view(request, company_id:str):
+    """ company delete view
+
+    Arguments:
+        company_id {[string]} -- [id of company]
+    
+    Returns:
+        rendering company delete template
+
+    """
+    # TODO
     pass
