@@ -6,7 +6,7 @@ def home(request):
     """ home view
     
     Arguments:
-        request -- [http request]
+        request {[object]} -- [http request]
     
     Returns:
         Rendering home page with list of six latest created adverts.

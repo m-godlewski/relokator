@@ -1,29 +1,29 @@
-{% extends 'website/base.html' %}
+{% extends "website/base.html" %}
 
-{% block  title%}{{query}}{% endblock  %}
+{% block  title%}Wyniki wyszukiwania dla: {{query}}{% endblock  %}
 
 {% block content %}
 
     <div class="card" style="margin:3%">
 
-        <div class = 'card-body'>
+        <div class = "card-body">
 
-            <div class = 'row'>
+            <div class = "row">
 
-                <div class = 'col-12 col-8 mx-auto'>
+                <div class = "col-12 col-8 mx-auto">
                 
                     {% if query%}
                         {% if  counter == 0%}
-                            <p class='lead'> Nie znaleziono ogłoszeń dla: {{query}}</p> 
+                            <p class="lead"> Nie znaleziono ogłoszeń dla: {{query}}</p> 
                         {% else %}
-                            <p class='lead'> Wyniki wyszukiwania dla: {{query}}</p>
+                            <p class="lead"> Wyniki wyszukiwania dla: {{query}}</p>
                         {% endif %}
                     {% else %}
-                        <p class='lead'> Podaj parametry wyszukiwania </p>
+                        <p class="lead"> Podaj parametry wyszukiwania </p>
                     {% endif %}
 
                     {% for advert in adverts_list %}
-                        {% include 'adverts/adverts-inline.html' with advert=advert truncate=True details=False settings=False%}
+                        {% include "adverts/adverts-inline.html" with advert=advert truncate=True details=False settings=False%}
                     {% endfor %}
 
                 </div>
