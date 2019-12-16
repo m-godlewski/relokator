@@ -9,17 +9,29 @@ from searches.views import search_view
 
 
 urlpatterns = [
-    path('', home),
-    path('admin/', admin.site.urls),
-    path('accounts/', include('django.contrib.auth.urls')), # login (django auth app)
-    path('accounts/', include('accounts.urls')), # sign in and others (accounts app)
-    path('adverts/new', advert_create_view), # advert app creation
-    path('adverts/', include('adverts.urls')), # advert app
-    path('companies/new', company_create_view), # company app creation
-    path('companies/', include('companies.urls')), # company app
-    path('search/', search_view) # search app
+    # home page view
+    path("", home),
+    # administration panel
+    path("admin/", admin.site.urls),
+    # login (django.auth)
+    path("accounts/", include("django.contrib.auth.urls")),
+    # account app (registration and account management)
+    path("accounts/", include("accounts.urls")),
+    # advert app - creation view
+    path("adverts/new", advert_create_view),
+    # advert app
+    path("adverts/", include("adverts.urls")),
+    # company app - creation view
+    path("companies/new", company_create_view),
+    # company app
+    path("companies/", include("companies.urls")),
+    # search app
+    path("search/", search_view),
 ]
 
+
+# setting media url if running in debug mode
 if settings.DEBUG:
     from django.conf.urls.static import static
-    urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
