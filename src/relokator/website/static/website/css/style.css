@@ -300,6 +300,11 @@
 #company-info-div-image{
     width: 30%;
     margin: 2% 0 2% 0;
+}
+
+#company-info-div-image-tariff{
+    width: 70%;
+    margin: 2% 0 2% 0;
 
 }
 

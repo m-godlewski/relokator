@@ -18,6 +18,7 @@ class Company(models.Model):
     name = models.CharField(max_length=50, unique=True, blank=False, verbose_name="Nazwa")
     location = models.CharField(max_length=100, unique=False, blank=False, verbose_name="Lokacja")
     logo = models.ImageField(upload_to="company_logo/", blank=True, null=True, verbose_name="Logo")
+    tariff = models.ImageField(upload_to="company_tariff/", blank=True, null=True, verbose_name="Cennik")
 
     def get_absolute_url(self):
         return f"/companies/{self.id}"

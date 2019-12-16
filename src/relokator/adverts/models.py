@@ -54,7 +54,7 @@ class Advert(models.Model):
     image [image] - zdjęcie #TODO dodaj możliwość dodania kilku zdjęć
     """
 
-    objects = AdvertManager()   # advert manager, used for search mostyl
+    objects = AdvertManager()   # advert manager, used for search
     location = GoogleMaps()     # adver google maps location object
 
     CATEGORY_CHOICES = (

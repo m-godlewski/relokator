@@ -1,0 +1,26 @@
+1 występ testowy (bez tego max 4)
+2 występ 10min
+ 
+Slajd tytułowy*
+Politechnika 
+Temat
+Promotor
+Kielce
+Kierunek
+Stopień
+Dyplomant
+
+2 Celem pracy było …
+Opracowanie, przetestowanie 
+Z wykorzystaniem narzędzi …
+Plan
+3 plan prezentacji*
+Problemy
+Propozycja rozwiązania
+Charasterystyki narzędzia
+
+4 Funkcjonalności*
+
+5 podsumowania*
+Jak można rozwijać
+Jakie możliwości

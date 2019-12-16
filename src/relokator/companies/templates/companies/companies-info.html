@@ -25,6 +25,15 @@
                     </center>
                 {% endif %}
 
+                {# Cennik firmy #}
+                {% if company.tariff %}
+                    <center>
+                    <div id="company-info-div-image-tariff">
+                        <img src="{{company.tariff.url}}" class="card-img-top">
+                    </div>
+                    </center>
+                {% endif %}
+
                 {# Zarządzanie firmą #}
                 {% if request.user == company.user %}
                     <hr>
