@@ -1,6 +1,6 @@
-{% extends 'website/base.html' %}
+{% extends "website/base.html" %}
 
-{% block title %}{{title}}{% endblock  %}
+{% block title %}Wszystkie ogłoszenia{% endblock  %}
 
 {% block content %}
     
@@ -8,13 +8,13 @@
 
         <div class="card-body">
 
-            <h2 style="padding-left:2%"><b>{{title}}</b></h2>
+            <h2 style="padding-left:2%"><b>Wszystkie ogłoszenia</b></h2>
 
             <hr>
             
-            <div style="margin:auto" class='row'>
+            <div style="margin:auto" class="row">
                 {% for object in adverts %}
-                    {% include 'adverts/adverts-inline.html' with advert=object %}
+                    {% include "adverts/adverts-inline.html" with advert=object %}
                 {% endfor %}
             </div>
 

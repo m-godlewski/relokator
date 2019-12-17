@@ -3,6 +3,9 @@ from .models import Advert
 
 
 class AdvertCreateForm(forms.Form):
+    """
+        class of advert creation form    
+    """
 
     title = forms.CharField(label="Wpisz tytuł", required=True)
     content = forms.CharField(widget=forms.Textarea, required=True)
@@ -15,6 +18,10 @@ class AdvertCreateForm(forms.Form):
 
 
 class AdvertModelForm(forms.ModelForm):
+    """
+        class used as form of advert model.    
+    """
+    
     class Meta:
         model = Advert
         fields = [

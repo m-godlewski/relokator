@@ -1,17 +1,17 @@
-{% extends 'website/base.html' %}
+{% extends "website/base.html" %}
 
-{% block title %}{{title}}{% endblock  %}
+{% block title %}{{advert.title}}{% endblock  %}
 
 {% block content %}
 
-    <div id="advert-detail" class = 'col-12 col-md-6 mx-auto mb-2 mt-'>
+    <div id="advert-detail" class = "col-12 col-md-6 mx-auto mb-2 mt-">
 
-        <div class = 'card'>
+        <div class = "card">
 
-            <div class = 'card-body'>
+            <div class = "card-body">
 
                 {# Tytuł i cena #}        
-                <h3 id="advert-detail-title" class='card-title'>{{advert.title}}</h3>
+                <h3 id="advert-detail-title" class="card-title">{{advert.title}}</h3>
                 {% if advert.advert_type == "Wynajem" %}
                     <h4 id="advert-detail-price"><b>{{advert.price}} PLN/miesięcznie</b></h6>
                 {% else %}
@@ -35,7 +35,7 @@
 
                 {#  Opis #}
                 <h4 class="card-subtitle mb-2 text-bold">Opis</h4>
-                <p class = 'card-text'>{{advert.content}}</p>
+                <p class = "card-text">{{advert.content}}</p>
 
                 <hr>
 
@@ -52,7 +52,7 @@
                 <div class="advert-detail-location"><h6>Miasto: <b>{{advert.city}}</b></h6></div>                
                 <div class="advert-detail-location"><h6>Adres: <b>{{advert.address}}</b></h6></div>                
                 {# Google Maps #}
-                <div id="google-maps-frame"><iframe src="{{advert_maps_url}}" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen=""></iframe></div>
+                <div id="google-maps-frame"><iframe src="{{advert.map_url}}" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen=""></iframe></div>
 
                 <hr>
 
@@ -82,10 +82,10 @@
 
                 {# Zarządzanie ogłoszeniem #}
                 {% if request.user == advert.user %}
-                    <div class="advert-detail-location"><a class="btn btn-info" href='{{advert.get_update_url}}'>Edytuj</a></div>
-                    <div class="advert-detail-location"><a class="btn btn-danger" href='{{advert.get_delete_url}}'>Usuń</a></div>
+                    <div class="advert-detail-location"><a class="btn btn-info" href="{{advert.get_update_url}}">Edytuj</a></div>
+                    <div class="advert-detail-location"><a class="btn btn-danger" href="{{advert.get_delete_url}}">Usuń</a></div>
                 {% else %}
-                    <div class="advert-detail-contact"><a class="btn btn-info" href=''>Skontaktuj się</a></div>
+                    <div class="advert-detail-contact"><a class="btn btn-info" href="">Skontaktuj się</a></div>
                 {% endif %}
 
             </div>
