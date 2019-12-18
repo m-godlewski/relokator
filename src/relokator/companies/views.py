@@ -36,7 +36,7 @@ def company_detail_view(request, company_id:str):
     """ company detail view
 
     Arguments:
-        company_id {[string]} -- [id of company]
+        company_id {str} -- [id of company]
     
     Returns:
         rendering company detail template with company data
@@ -75,7 +75,7 @@ def company_update_view(request, company_id:str):
     """ company update view
 
     Arguments:
-        company_id {[string]} -- [id of company]
+        company_id {str} -- [id of company]
     
     Returns:
         rendering company update template with company data in form
@@ -106,7 +106,7 @@ def company_delete_view(request, company_id:str):
     """ company delete view
 
     Arguments:
-        company_id {[string]} -- [id of company]
+        company_id {str} -- [id of company]
     
     Returns:
         rendering company delete template

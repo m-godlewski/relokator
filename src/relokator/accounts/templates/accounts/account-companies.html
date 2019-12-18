@@ -1,6 +1,6 @@
-{% extends 'website/base.html' %}
+{% extends "website/base.html" %}
 
-{% block title %}{{title}}{% endblock  %}
+{% block title %}Firma użytkownika {{username}}{% endblock  %}
 
 {% block content %}
     
@@ -18,11 +18,14 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="companies">Firma</a>
                 </li>
+
+                {# if username is logged username enable account settings #}
                 {% if request.user.username == username %}
                     <li class="nav-item">
                         <a class="nav-link" href="settings">Ustawienia</a>
                     </li>
                 {% endif %}
+
             </ul>
 
         </div>
@@ -36,7 +39,7 @@
                 <hr>
                 
                 {# Nazwa firmy #}
-                <h2 id="advert-detail-title" class='card-title'>{{object.name}}</h3>
+                <h2 id="advert-detail-title" class="card-title">{{object.name}}</h3>
 
                 {# Lokalizacja firmy #}
                 <h4 id="advert-detail-header">{{object.location}}</h4>
@@ -62,13 +65,13 @@
                 {# Zarządzanie firmą #}
                 {% if request.user == object.user %}
                     <hr>
-                    <div class="advert-detail-location"><a class="btn btn-info" href='{{object.get_update_url}}'>Zarządzaj</a></div>
+                    <div class="advert-detail-location"><a class="btn btn-info" href="{{object.get_update_url}}">Zarządzaj</a></div>
                 {% endif %}
 
             {% else %}
 
                 <h3 class="text-center">Nie posiadasz żadnej firmy</h3></br>
-                <center><a class='btn btn-info' href="/companies/new">Zarejestruj swoją firmę</a></center>
+                <center><a class="btn btn-info" href="/companies/new">Zarejestruj swoją firmę</a></center>
 
             {% endif %}
 

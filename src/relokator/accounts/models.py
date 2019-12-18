@@ -4,15 +4,17 @@ from django.contrib.auth.models import AbstractUser
 
 
 class Account(AbstractUser):
-    """Model konta użytkownika
+    """
+        Model of account
 
-    username [integer] - nazwa użytkownika
-    first_name [char] - imię
-    last_name [char] - nazwisko
-    join_date [date] - data rejestracji
-    email [char] - email
-    phone_number [char] - numer telefonu
-    profile_image [image] - zdjęcie profilowe
+    username [integer] -  user name
+    first_name [char] - name
+    last_name [char] - surname
+    join_date [date] - registration date
+    email [char] - e-mail
+    phone_number [char] - phone number
+    profile_image [image] - profile photo
+
     """
 
     username = models.CharField(max_length=50, unique=True, verbose_name="Nazwa użytkownika")
@@ -28,20 +30,48 @@ class Account(AbstractUser):
         verbose_name="Zdjęcie profilowe",
     )
 
+    # field used to login
     USERNAME_FIELD = "username"
+
+    # required fields during registration
     REQUIRED_FIELDS = ["first_name", "email", "phone_number"]
 
     def get_absolute_url(self):
+        """ method returns absolute url of account
+        
+        Returns:
+            absolute url of account
+        """
         return f"/accounts/{self.id}"
 
     def get_info_url(self):
+        """ method returns url of account information
+        
+        Returns:
+            url of account information
+        """
         return f"{self.get_absolute_url()}/info"
 
     def get_adverts_url(self):
+        """ method returns url of account adverts
+        
+        Returns:
+            url of account adverts
+        """
         return f"{self.get_absolute_url()}/adverts"
 
     def get_companies_url(self):
+        """ method returns url of account companies
+        
+        Returns:
+            url of account comapnies
+        """
         return f"{self.get_absolute_url()}/adverts"
 
     def get_update_url(self):
+        """ method returns url of account settings
+        
+        Returns:
+            url of account settings
+        """
         return f"{self.get_absolute_url()}/settings"

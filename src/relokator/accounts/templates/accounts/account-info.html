@@ -1,6 +1,6 @@
-{% extends 'website/base.html' %}
+{% extends "website/base.html" %}
 
-{% block title %}{{title}}{% endblock  %}
+{% block title %}Profil użytkownika {{object.username}}{% endblock  %}
 
 {% block content %}
     
@@ -19,7 +19,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="companies">Firma</a>
                 </li>
-                {% if request.user.username == username %}
+                {% if request.user.username == object.username %}
                     <li class="nav-item">
                         <a class="nav-link" href="settings">Ustawienia</a>
                     </li>

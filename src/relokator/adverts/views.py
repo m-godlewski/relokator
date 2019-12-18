@@ -42,6 +42,9 @@ def advert_create_view(request):
 def advert_detail_view(request, advert_id:str):
     """ advert detail view
     
+    Arguments:
+        advert_id {str} -- [id of advert]
+
     Returns:
         rendering advert detail template
 
@@ -81,6 +84,9 @@ def advert_browse_view(request):
 def advert_update_view(request, advert_id:str):
     """ advert update view
     
+    Arguments:
+        advert_id {str} -- [id of advert]
+
     Returns:
         rendering advert update template
 
@@ -113,6 +119,9 @@ def advert_update_view(request, advert_id:str):
 def advert_delete_view(request, advert_id:str):
     """ advert delete view
     
+    Arguments:
+        advert_id {str} -- [id of advert]
+
     Returns:
         rendering advert delete template
 

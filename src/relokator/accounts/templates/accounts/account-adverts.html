@@ -1,6 +1,6 @@
-{% extends 'website/base.html' %}
+{% extends "website/base.html" %}
 
-{% block title %}{{title}}{% endblock  %}
+{% block title %}Ogłoszenia użytkownika {{username}}{% endblock  %}
 
 {% block content %}
     
@@ -9,6 +9,7 @@
         <div class="card-header">
 
             <ul class="nav nav-tabs card-header-tabs">
+            
                 <li class="nav-item">
                     <a class="nav-link" href="info">Profil</a>
                 </li>
@@ -18,11 +19,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="companies">Firma</a>
                 </li>
+
+                {# if username is logged username enable account settings #}
                 {% if request.user.username == username %}
                     <li class="nav-item">
                         <a class="nav-link" href="settings">Ustawienia</a>
                     </li>
                 {% endif %}
+
             </ul>
 
         </div>
@@ -33,9 +37,9 @@
 
             <hr>
 
-            <div class='row'>
+            <div class="row">
                 {% for object in object_list %}
-                    {% include 'adverts/adverts-inline.html' with advert=object truncate=True detail=False settings=True%}
+                    {% include "adverts/adverts-inline.html" with advert=object truncate=True detail=False settings=True%}
                 {% endfor %}
             </div>
 

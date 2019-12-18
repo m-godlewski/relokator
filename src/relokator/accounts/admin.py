@@ -7,6 +7,10 @@ from .models import Account
 
 
 class AccountAdmin(UserAdmin):
+    """
+        Class overwrites default user class of Django
+    """
+
     add_form = AccountCreationForm
     form = AccountUpdateForm
     model = Account

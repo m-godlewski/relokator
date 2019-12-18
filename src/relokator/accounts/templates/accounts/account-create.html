@@ -1,4 +1,4 @@
-{% extends 'website/base.html' %}
+{% extends "website/base.html" %}
 
 {% block title %}Rejestracja{% endblock  %}
 
@@ -11,7 +11,7 @@
     {% if request.user.is_authenticated%}
 
       <h2><b>Już jesteś zarejestrowany!</b></h2>
-      <a class='btn btn-info' href="/">Wróć do strony głównej</a>
+      <a class="btn btn-info" href="/">Wróć do strony głównej</a>
 
     {% else %}
 
