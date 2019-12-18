@@ -1,4 +1,4 @@
-{% extends 'website/base.html' %}
+{% extends "website/base.html" %}
 
 {% block title %}{{title}}{% endblock  %}
 
@@ -11,7 +11,7 @@
             <div class="card-body">
 
                 {# company.name #}
-                <h2 id="advert-detail-title" class='card-title'>{{company.name}}</h3>
+                <h2 id="advert-detail-title" class="card-title">{{company.name}}</h3>
 
                 {# company.location #}
                 <h4 id="advert-detail-header">{{company.location}}</h4>
@@ -37,7 +37,7 @@
                 {# manage company button #}
                 {% if request.user == company.user %}
                     <hr>
-                    <div class="advert-detail-location"><a class="btn btn-info" href='{{company.get_update_url}}'>Zarządzaj</a></div>
+                    <div class="advert-detail-location"><a class="btn btn-info" href="{{company.get_update_url}}">Zarządzaj</a></div>
                 {% endif %}
 
             </div>

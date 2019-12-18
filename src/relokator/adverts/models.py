@@ -62,7 +62,7 @@ class AdvertManager(models.Manager):
         """ making search in db base on AdvertQuerySet object
         
         Keyword Arguments:
-            query {[string]} -- [city of searched adverts] (default: {None})
+            query {[str]} -- [city of searched adverts] (default: {None})
             parameters {[dict]} -- [base parameters of searched adverts] (default: {None})
         
         Returns:
@@ -134,7 +134,7 @@ class Advert(models.Model):
         # overriding base saving function
         super(Advert, self).save(*args, **kwargs)
 
-    def get_absolute_url(self):
+    def get_absolute_url(self) -> str:
         """ method retrieving absolute url of advert object
         
         Returns:
@@ -142,7 +142,7 @@ class Advert(models.Model):
         """
         return f"/adverts/{self.id}"
 
-    def get_update_url(self):
+    def get_update_url(self) -> str:
         """ method retrieving edit url of advert object
         
         Returns:
@@ -150,7 +150,7 @@ class Advert(models.Model):
         """
         return f"{self.get_absolute_url()}/edit"
 
-    def get_delete_url(self):
+    def get_delete_url(self) -> str:
         """ method retrieving delete url of advert object
         
         Returns:

@@ -7,13 +7,13 @@ class Account(AbstractUser):
     """
         Model of account
 
-    username [integer] -  user name
-    first_name [char] - name
-    last_name [char] - surname
-    join_date [date] - registration date
-    email [char] - e-mail
-    phone_number [char] - phone number
-    profile_image [image] - profile photo
+        username [integer] -  user name
+        first_name [char] - name
+        last_name [char] - surname
+        join_date [date] - registration date
+        email [char] - e-mail
+        phone_number [char] - phone number
+        profile_image [image] - profile photo
 
     """
 
@@ -36,7 +36,7 @@ class Account(AbstractUser):
     # required fields during registration
     REQUIRED_FIELDS = ["first_name", "email", "phone_number"]
 
-    def get_absolute_url(self):
+    def get_absolute_url(self) -> str:
         """ method returns absolute url of account
         
         Returns:
@@ -44,7 +44,7 @@ class Account(AbstractUser):
         """
         return f"/accounts/{self.id}"
 
-    def get_info_url(self):
+    def get_info_url(self) -> str:
         """ method returns url of account information
         
         Returns:
@@ -52,7 +52,7 @@ class Account(AbstractUser):
         """
         return f"{self.get_absolute_url()}/info"
 
-    def get_adverts_url(self):
+    def get_adverts_url(self) -> str:
         """ method returns url of account adverts
         
         Returns:
@@ -60,7 +60,7 @@ class Account(AbstractUser):
         """
         return f"{self.get_absolute_url()}/adverts"
 
-    def get_companies_url(self):
+    def get_companies_url(self) -> str:
         """ method returns url of account companies
         
         Returns:
@@ -68,7 +68,7 @@ class Account(AbstractUser):
         """
         return f"{self.get_absolute_url()}/adverts"
 
-    def get_update_url(self):
+    def get_update_url(self) -> str:
         """ method returns url of account settings
         
         Returns:

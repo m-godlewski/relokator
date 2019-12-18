@@ -1,4 +1,4 @@
-{% extends 'website/base.html' %}
+{% extends "website/base.html" %}
 
 {% block title %}{{title}}{% endblock  %}
 
@@ -12,9 +12,9 @@
 
             <hr>
             
-            <div style="margin:auto" class='row'>
+            <div style="margin:auto" class="row">
                 {% for object in companies %}
-                    {% include 'companies/companies-inline.html' with company=object %}
+                    {% include "companies/companies-inline.html" with company=object %}
                 {% endfor %}
             </div>
 

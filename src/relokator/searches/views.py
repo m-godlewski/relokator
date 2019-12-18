@@ -11,7 +11,7 @@ def get_search_parameters(request) -> dict:
         request {[object]} -- [http request]
     
     Returns:
-        parameters [dict] -- [dictionary contains search query parameters]
+        parameters {dict} -- [dictionary contains search query parameters]
         
     """
 

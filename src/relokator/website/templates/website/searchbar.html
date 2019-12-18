@@ -1,6 +1,6 @@
 <div id="searchbar">
 
-  <form class="form-inline my-2 my-lg-0" action='/search/'>
+  <form class="form-inline my-2 my-lg-0" action="/search/">
     
     <div id="searchbar-row-title">
       <h2>Znajdź mieszkanie dla siebie!</h2>
@@ -9,7 +9,7 @@
     {# Adver city #}
     <div id="serchbar-row-city" class="form-row">
       {# text search input #}
-      <input id="searchbar-input-city" class="form-control" type="search" name='q' placeholder="Podaj miasto" aria-label="Search">
+      <input id="searchbar-input-city" class="form-control" type="search" name="q" placeholder="Podaj miasto" aria-label="Search">
     </div>
 
     <div class="searchbar-delimiter"></div>
@@ -18,7 +18,7 @@
     <div id="searchbar-row" class="form-row">    
       {# Advert.category #} 
       <div class="col">
-        <select id="searchbar-select" class="form-control" name='category' id="category">
+        <select id="searchbar-select" class="form-control" name="category" id="category">
           <option selected disabled>Kategoria</option>
           <option value>Wszystkie</option>
           <option value="Dom">Dom</option>
@@ -28,7 +28,7 @@
       </div>
       {# Adver.advert_type #}
       <div class="col">
-        <select id="searchbar-select" class="form-control" name='advert_type' id="advert_type">
+        <select id="searchbar-select" class="form-control" name="advert_type" id="advert_type">
           <option selected disabled>Typ</option>
           <option value>Wszystkie</option>
           <option value="Wynajem">Wynajem</option>
@@ -37,7 +37,7 @@
       </div>
       {# Advert.furnished #}
       <div class="col">
-        <select id="searchbar-select" class="form-control" name='furnished' id="furnished">
+        <select id="searchbar-select" class="form-control" name="furnished" id="furnished">
           <option selected disabled>Umeblowanie</option>
           <option value>Wszystkie</option>
           <option value="Tak">Tak</option>
@@ -49,10 +49,10 @@
     {# Maximum and minimum advert price #}
     <div id="searchbar-row" class="form-row">
       <div class="col">
-        <input id="searchbar-input" class="form-control" type="text" class="form-control" id="price_min" name='price_min' placeholder="Cena minimalna">
+        <input id="searchbar-input" class="form-control" type="text" class="form-control" id="price_min" name="price_min" placeholder="Cena minimalna">
       </div>
       <div class="col">
-        <input id="searchbar-input" class="form-control" type="text" class="form-control" id="price_max" name='price_max' placeholder="Cena maksymalna">
+        <input id="searchbar-input" class="form-control" type="text" class="form-control" id="price_max" name="price_max" placeholder="Cena maksymalna">
       </div>
     </div>
 

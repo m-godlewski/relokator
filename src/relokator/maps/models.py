@@ -28,8 +28,8 @@ class GoogleMaps(object):
         """ address preprocessing method
 
         Arguments:
-            city {[string]} -- [city of advert]
-            address {[string]} -- [street and number of advert]
+            city {[str]} -- [city of advert]
+            address {[str]} -- [street and number of advert]
         
         Returns:
             convert address and city parameter to word plus joined string
@@ -42,8 +42,8 @@ class GoogleMaps(object):
         """ method getting google maps url based on preprocess address string
 
         Arguments:
-            city {[string]} -- [city of advert]
-            address {[string]} -- [street and number of advert]
+            city {[str]} -- [city of advert]
+            address {[str]} -- [street and number of advert]
         
         Returns:
             returning google maps url that show location given in parameters
@@ -56,8 +56,8 @@ class GoogleMaps(object):
         """ function requesting for x and y coords of location from google geocoding api
 
         Arguments:
-            city {[string]} -- [city of advert]
-            address {[string]} -- [street and number of advert]
+            city {[str]} -- [city of advert]
+            address {[str]} -- [street and number of advert]
         
         Returns:
             x = longitude, y = latitude of location given in arguments.
@@ -92,9 +92,9 @@ class GoogleMaps(object):
         """ function filtering given list of adverts by location priority given by user
 
         Arguments:
-            list_of_adverts {[list[string]]} -- [list of adverts to filtering]
-            object_type {[string]} -- [type of object to sort list_of_adverts by]
-            radius {[string]} -- [maximum possible distance between object and advert]
+            list_of_adverts {[list[str]]} -- [list of adverts to filtering]
+            object_type {[str]} -- [type of object to sort list_of_adverts by]
+            radius {[str]} -- [maximum possible distance between object and advert]
         
         Returns:
             x = longitude, y = latitude of location given in arguments.

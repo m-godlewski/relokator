@@ -1,4 +1,4 @@
-{% extends 'website/base.html' %}
+{% extends "website/base.html" %}
 
 {% block title %}Home{% endblock  %}
 
@@ -6,7 +6,7 @@
     
     <!-- Search bar -->
     <div id="searchbar-div">
-        {% include 'website/searchbar.html' %}
+        {% include "website/searchbar.html" %}
     </div>
 
     <!-- Adverts -->
@@ -14,9 +14,9 @@
 
     <hr>
 
-    <div style="margin:auto" class='row'>
+    <div style="margin:auto" class="row">
         {% for object in qs %}
-            {% include 'adverts/adverts-inline.html' with advert=object truncate=True detail=False settings=False %}
+            {% include "adverts/adverts-inline.html" with advert=object truncate=True detail=False settings=False %}
         {% endfor %}
     </div>
 
