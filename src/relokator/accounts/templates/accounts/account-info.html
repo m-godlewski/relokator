@@ -1,9 +1,9 @@
 {% extends "website/base.html" %}
 
-{% block title %}Profil użytkownika {{object.username}}{% endblock  %}
+{% block title %}{{object.username}}{% endblock  %}
 
 {% block content %}
-    
+
     <div id="account-info-card" class="card text-center">
 
         <div class="card-header">
@@ -31,7 +31,7 @@
 
         <div id="account-info-body" class="card-body">
 
-            <h2>Profil użytkownika <b>{{object.username}}</b></h2>
+            <h2><b>{{object.username}}</b></h2>
 
             <hr>
 
@@ -44,11 +44,11 @@
                 </div>
             </div>
 
+            {% if object.profile_image %}
             <div id="account-info-div-image">
-                {% if object.profile_image %}
                     <img src="{{object.profile_image.url}}" width="100%" height="auto">
-                {% endif %}
             </div>
+            {% endif %}
 
         </div>
 

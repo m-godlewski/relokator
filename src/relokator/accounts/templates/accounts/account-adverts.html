@@ -1,6 +1,6 @@
 {% extends "website/base.html" %}
 
-{% block title %}Ogłoszenia użytkownika {{username}}{% endblock  %}
+{% block title %}{{username}} - ogłoszenia{% endblock  %}
 
 {% block content %}
     
@@ -33,15 +33,24 @@
         
         <div class="card-body" style="margin-top:2%">
         
-            <h2 class="text-center">Ogłoszenia użytkownika <b>{{username}}</b></h1>
+            {% if object_list %}
 
-            <hr>
+                <div class="row">
+                    {% for object in object_list %}
+                        {% include "adverts/adverts-inline.html" with advert=object truncate=True detail=False settings=True%}
+                    {% endfor %}
+                </div>
 
-            <div class="row">
-                {% for object in object_list %}
-                    {% include "adverts/adverts-inline.html" with advert=object truncate=True detail=False settings=True%}
-                {% endfor %}
-            </div>
+            {% else %}
+
+                <h3 class="text-center"><b>Brak ogłoszeń</b></h3></br>
+                
+                {# if username is logged username enable advert creation #}
+                {% if request.user.username == username %}
+                    <center><a class="btn btn-info" href="/adverts/new">Stwórz ogłoszenie</a></center>
+                {% endif %}
+
+            {% endif %}
 
         </div>
 

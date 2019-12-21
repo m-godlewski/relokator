@@ -27,7 +27,7 @@
 
     <div class="card-body" style="margin-top:2%">
 
-        <h2 class="text-center">Ustawienia profilu<b>{{username}}</b></h1>
+        <h2 class="text-center"><b>Ustawienia profilu</b></h1>
 
         <hr>
 
@@ -42,7 +42,7 @@
             <div class="fieldWrapper">
                 {{ form.first_name.errors }}
                 <label for="{{ form.first_name.id_for_label }}"><b>Imię:</b></label>
-                <div id="login-form-input">{{ form.first_name }}</div>
+                <div id="login-form-input-update">{{ form.first_name }}</div>
             </div>
             </div>
 
@@ -51,7 +51,7 @@
             <div class="fieldWrapper">
                 {{ form.last_name.errors }}
                 <label for="{{ form.last_name.id_for_label }}"><b>Nazwisko:</b></label>
-                <div id="login-form-input">{{ form.last_name }}</div>
+                <div id="login-form-input-update">{{ form.last_name }}</div>
             </div>
             </div>
 
@@ -60,7 +60,7 @@
             <div class="fieldWrapper">
                 {{ form.email.errors }}
                 <label for="{{ form.email.id_for_label }}"><b>E-mail:</b></label>
-                <div id="login-form-input">{{ form.email }}</div>
+                <div id="login-form-input-update">{{ form.email }}</div>
             </div>
             </div>
 
@@ -69,7 +69,7 @@
             <div class="fieldWrapper">
                 {{ form.phone_number.errors }}
                 <label for="{{ form.phone_number.id_for_label }}"><b>Numer telefonu:</b></label>
-                <div id="login-form-input">{{ form.phone_number }}</div>
+                <div id="login-form-input-update">{{ form.phone_number }}</div>
             </div>
             </div>
 
@@ -78,7 +78,7 @@
             <div class="fieldWrapper">
                 {{ form.profile_image.errors }}
                 <label for="{{ form.profile_image.id_for_label }}"><b>Zdjęcie profilowe:</b></label>
-                <div id="login-form-input-image">{{ form.profile_image }}</div>
+                <div id="login-form-input-update-image" class='btn btn-light'>{{ form.profile_image }}</div>
             </div>
             </div>
 

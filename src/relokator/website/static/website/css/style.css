@@ -107,7 +107,45 @@ a:link {
   }
 
 
+#login-form-input-update input[type=text]{
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    text-align: center;
+}
 
+#login-form-input-update a{
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#login-form-input-update input[type=password]{
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#login-form-input-update input[type=email]{
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#login-form-input-update-image input[type=file]{
+    width: 70%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    text-align: center;
+}
 /* ########## SEARCHES ########## */
 
 #searchbar-div{
@@ -278,6 +316,12 @@ a:link {
     margin-bottom: 5%;
 }
 
+#account-info-card-title{
+    margin: auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
 #account-info-body{
     text-align: center;
     margin-left: 5%;
@@ -295,9 +339,9 @@ a:link {
 }
 
 #account-info-div-image{
-    width: 20%;
-    margin-top: 2%;
+    width: 25%;
     display: inline-block;
+    border-style: double;
 }
 
 #account-info-data{

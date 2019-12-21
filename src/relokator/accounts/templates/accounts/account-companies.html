@@ -1,6 +1,6 @@
 {% extends "website/base.html" %}
 
-{% block title %}Firma użytkownika {{username}}{% endblock  %}
+{% block title %}{{username}} - firma{% endblock  %}
 
 {% block content %}
     
@@ -34,10 +34,6 @@
         
             {% if object %}
 
-                <h2 class="text-center">Firma użytkownika <b>{{username}}</b></h1>
-
-                <hr>
-                
                 {# Nazwa firmy #}
                 <h2 id="advert-detail-title" class="card-title">{{object.name}}</h3>
 
@@ -53,7 +49,10 @@
                     </center>
                 {% endif %}
 
+                <hr>
+
                 {# Cennik firmy #}
+                <h4 class="card-subtitle mb-2 text-bold"><b>Cennik</b></h4>
                 {% if object.tariff %}
                     <center>
                     <div id="company-info-div-image-tariff">
@@ -70,8 +69,12 @@
 
             {% else %}
 
-                <h3 class="text-center">Nie posiadasz żadnej firmy</h3></br>
-                <center><a class="btn btn-info" href="/companies/new">Zarejestruj swoją firmę</a></center>
+                <h3 class="text-center"><b>Brak firm</b></h3></br>
+
+                {# if username is logged username enable company creation #}
+                {% if request.user.username == username %}
+                    <center><a class="btn btn-info" href="/companies/new">Stwórz firmę</a></center>
+                {% endif %}
 
             {% endif %}
 
