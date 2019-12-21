@@ -11,11 +11,11 @@
       {% if request.user.is_authenticated%}
 
         <h2><b>Już jesteś zalogowany!</b></h2>
-        <a class="btn btn-info" href="/">Wróć do strony głównej</a>
+        <a class="btn btn-info" style="margin-top:4%" href="/">Wróć do strony głównej</a>
 
       {% else %}
 
-        <h2 id="login-form-title">Logowanie</h2>
+        <h2 id="login-form-title"><b>Logowanie</b></h2>
 
         <form method="POST">
 
@@ -26,7 +26,7 @@
           <div class="form-group">
             <div class="fieldWrapper">
                 {{ form.username.errors }}
-                <label for="{{ form.username.id_for_label }}">Login:</label>
+                <label for="{{ form.username.id_for_label }}"><b>Login:</b></label>
                 <div id="login-form-input">{{ form.username }}</div>
             </div>
           </div>
@@ -34,7 +34,7 @@
           <div class="form-group">
             <div class="fieldWrapper">
                 {{ form.password.errors }}
-                <label for="{{ form.password.id_for_label }}">Hasło:</label>
+                <label for="{{ form.password.id_for_label }}"><b>Hasło:</b></label>
                 <div id="login-form-input">{{ form.password }}</div>
             </div>
           </div>
