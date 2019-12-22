@@ -4,18 +4,115 @@
 
 {% block content %}
 
-    <div class="card" style="margin:5%;">
+    <div id="advert-form-card" class="card">
 
         <div class="card-body">
-
             <center>
+
+            <h3 id="advert-form-card-title"><b>Tworzenie nowego ogłoszenia</b></h3>
+
             <form method="POST" action="" enctype="multipart/form-data" style="margin-top:2%;">
                 {% csrf_token %}
-                {{form.as_p}}
-                <button class="btn btn-primary" type="submit">Dodaj ogłoszenie</button>
-            </form>
-            </center>
 
+                {# Title #}
+                <div class="form-group">
+                    <div class="fieldWrapper">
+                        {{ form.title.errors }}
+                        <label for="{{ form.title.id_for_label }}"><b>Tytuł:</b></label>
+                        <div id="advert-form-input">{{ form.title }}</div>
+                    </div>
+                </div>
+
+                {# Content #}
+                <div class="form-group">
+                    {{ form.content.errors }}
+                    <label for="{{ form.content.id_for_label }}"><b>Opis:</b></label>
+                    <div class="fieldWrapper"> {{ form.content }} </div>
+                </div>
+
+                <hr>
+
+                <div id="advert-form-parameters" class="form-group">
+
+                    <div class="fieldWrapper">
+
+                        {# Category #}
+                        {{ form.category.errors }}
+                        <div id="advert-form-parameter">
+                            <label for="{{ form.category.id_for_label }}"><b>Kategoria:</b></label>
+                            {{ form.category }}
+                        </div>
+
+                        {# Type #}
+                        {{ form.advert_type.errors }}
+                        <div id="advert-form-parameter">
+                            <label for="{{ form.advert_type.id_for_label }}"><b>Kategoria:</b></label>
+                            {{ form.advert_type }} 
+                        </div>
+
+                        {# Furnished #}
+                        {{ form.furnished.errors }}
+                        <div id="advert-form-parameter"> 
+                            <label for="{{ form.furnished.id_for_label }}"><b>Umeblowanie:</b></label>
+                            {{ form.furnished }} 
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div id="advert-form-parameters" class="form-group">
+
+                    <div class="fieldWrapper">
+
+                        {# City #}
+                        <div id="advert-form-parameter"> 
+                            {{ form.city.errors }}
+                            <label for="{{ form.city.id_for_label }}"><b>Miasto:</b></label>
+                            {{ form.city }}
+                        </div>
+                
+                        {# Address #}
+                        <div id="advert-form-parameter"> 
+                            {{ form.address.errors }}
+                            <label for="{{ form.address.id_for_label }}"><b>Adres:</b></label>
+                            {{ form.address }}
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <hr>
+
+                {# Price #}
+                <div id="advert-form-parameters" class="form-group">
+                    <div class="fieldWrapper">
+                        {{ form.price.errors }}
+                        <label for="{{ form.price.id_for_label }}"><b>Cena:</b></label>
+                        {{ form.price }} PLN
+                    </div>
+                </div>
+
+                <hr>
+
+                {# Image #}
+                <div id="advert-form-parameters" class="form-group">
+                    <div class="fieldWrapper">
+                        {{ form.image.errors }}
+                        <label for="{{ form.image.id_for_label }}"><b>Zdjęcie:</b></label>
+                        <div id="advert-form-input">{{ form.image }}</div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <button id="advert-form-create-button" class="btn btn-primary" type="submit">Dodaj ogłoszenie</button>
+            </form>
+
+            </center>
         </div>
         
     </div>

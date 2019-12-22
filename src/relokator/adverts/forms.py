@@ -7,7 +7,7 @@ class AdvertCreateForm(forms.Form):
         class of advert creation form    
     """
 
-    title = forms.CharField(label="Wpisz tytuł", required=True)
+    title = forms.CharField(label="Wpisz tytuł", required=True, max_length=100)
     content = forms.CharField(widget=forms.Textarea, required=True)
     city = forms.CharField(required=True)
     address = forms.CharField(required=True)
@@ -35,3 +35,7 @@ class AdvertModelForm(forms.ModelForm):
             "price",
             "image",
         ]
+
+        widgets = {
+          'content': forms.Textarea(attrs={'rows':10, 'cols':70}),
+        }

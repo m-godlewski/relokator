@@ -257,6 +257,89 @@ a:link {
     border-radius: 20px;
 }
 
+/* ADVERT FORM */
+
+#advert-form-card{
+    width: 50%;
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+#advert-form-card-title{
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 8%;
+}
+
+#advert-form-parameters{
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+#advert-form-parameter{
+    display: inline-block;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+#advert-form-input{
+    width: 100%;
+    margin: auto;
+}
+
+#advert-form-input{
+    width: 100%;
+    margin: auto;
+}
+
+#advert-form-input input[type=text]{
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+#advert-form-input a{
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#advert-form-input input[type=password]{
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#advert-form-input input[type=email]{
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#advert-form-input-image input[type=file]{
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#advert-form-create-button{
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+
 /* ADVERT DETAIL */
 
 #advert-detail{
