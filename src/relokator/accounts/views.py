@@ -1,5 +1,5 @@
 import logging
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 
@@ -28,6 +28,9 @@ def account_create_view(request):
         obj = form.save(commit=False)
         form.save()
         form = AccountCreationForm()
+
+    if request.method == "POST":
+        return redirect(f"/accounts/login")
 
     context = { "form": form }
     return render(request, template_name, context)
