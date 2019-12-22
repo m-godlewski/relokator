@@ -4,18 +4,63 @@
 
 {% block content %}
     
-    <div class="card text-center" style="margin:5%;">
+    <div id="advert-form-card" class="card text-center">
 
         <div class="card-body">
-
             <center>
+
+            <h3 id="advert-form-card-title"><b>Rejestracja firmy</b></h3>
+
             <form method="POST" action="" enctype="multipart/form-data" style="margin-top:2%;">
                 {% csrf_token %}
-                {{form.as_p}}
-                <button class="btn btn-primary"type="submit" href="{% url "login" %}">Zarejestruj firmę</button>
-            </form>
-            </center>
 
+                {# Name #}
+                <div class="form-group">
+                    <div class="fieldWrapper">
+                        {{ form.name.errors }}
+                        <label for="{{ form.name.id_for_label }}"><b>Nazwa:</b></label>
+                        <div id="advert-form-input">{{ form.name }}</div>
+                    </div>
+                </div>
+
+                {# Location #}
+                <div class="form-group">
+                    <div class="fieldWrapper">
+                        {{ form.location.errors }}
+                        <label for="{{ form.location.id_for_label }}"><b>Lokacja:</b></label>
+                        <div id="advert-form-input">{{ form.location }}</div>
+                    </div>
+                </div>
+
+                <hr>
+
+                {# Logo #}
+                <div id="advert-form-parameters" class="form-group">
+                    <div class="fieldWrapper">
+                        {{ form.logo.errors }}
+                        <label for="{{ form.logo.id_for_label }}"><b>Logo:</b></label>
+                        <div id="advert-form-input">{{ form.logo }}</div>
+                    </div>
+                </div>
+
+                <hr>
+
+                {# Cennik #}
+                <div id="advert-form-parameters" class="form-group">
+                    <div class="fieldWrapper">
+                        {{ form.tariff.errors }}
+                        <label for="{{ form.tariff.id_for_label }}"><b>Cennik:</b></label>
+                        <div id="advert-form-input">{{ form.tariff }}</div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <button id="advert-form-create-button" class="btn btn-primary"type="submit" href="{% url "login" %}">Zarejestruj firmę</button>
+
+            </form>
+
+            </center>
         </div>
 
     </div>

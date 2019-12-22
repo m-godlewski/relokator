@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 
@@ -26,6 +26,10 @@ def company_create_view(request):
         obj.user = request.user # setting current user as owner of company
         form.save()
         form = CompanyModelForm()
+
+    # after success creation redirect to account companies view
+    if request.method == "POST":
+        return redirect(f"/accounts/{request.user}/companies")
 
     context = {"title": "Rejestracja firmy", "form": form}
     return render(request, template_name, context)
@@ -95,6 +99,10 @@ def company_update_view(request, company_id:str):
     # if current user is not owner of company, redirect to error page
     if request.user.username != str(company.user):
         return render(request, "website/error_404.html")
+
+    # after successfull update redirect to account companies view
+    if request.method == "POST":
+        return redirect(f"/accounts/{request.user}/companies")
 
     context = {"title": "Edytycja firmy '{}'".format(str(company.name)), "form": form}
     return render(request, template_name, context)
