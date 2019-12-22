@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 
 from .models import Advert
-from .forms import AdvertModelForm
+from .forms import AdvertModelForm, AdvertUpdateForm
 from companies.models import Company
 
 
@@ -95,10 +95,10 @@ def advert_update_view(request, advert_id:str):
     template_name = "adverts/adverts-update.html"
 
     # get advert by id
-    advert = get_object_or_404(Advert, id=advert_id)
+    advert = Advert.objects.get(id=advert_id)
 
     # fill form with advert data
-    form = AdvertModelForm(data=request.POST or None, files=request.FILES, instance=advert)
+    form = AdvertUpdateForm(request.POST or None, instance=advert)
 
     if form.is_valid():
         form.save()
@@ -106,6 +106,10 @@ def advert_update_view(request, advert_id:str):
     # if current user is not owner of advert, redirect to error page
     if request.user.username != str(advert.user):
         return render(request, "website/error_404.html")
+
+    # after successfull update redirect to updated adverts details
+    if request.method == "POST":
+        return redirect(f"/adverts/{advert_id}")
 
     context = {
         "form": form,

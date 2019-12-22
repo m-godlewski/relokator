@@ -17,6 +17,30 @@ class AdvertCreateForm(forms.Form):
     price = forms.IntegerField(min_value=1, required=True)
 
 
+class AdvertUpdateForm(forms.ModelForm):
+    """
+        class used as update form of advert model.    
+    """
+    
+    class Meta:
+        model = Advert
+        fields = [
+            "title",
+            "content",
+            "city",
+            "address",
+            "category",
+            "advert_type",
+            "furnished",
+            "price",
+            "image",
+        ]
+
+        widgets = {
+          'content': forms.Textarea(attrs={'rows':10, 'cols':70}),
+        }
+
+
 class AdvertModelForm(forms.ModelForm):
     """
         class used as form of advert model.    

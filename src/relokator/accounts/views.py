@@ -29,6 +29,7 @@ def account_create_view(request):
         form.save()
         form = AccountCreationForm()
 
+    # redirect to login page after successfull registration
     if request.method == "POST":
         return redirect(f"/accounts/login")
 
