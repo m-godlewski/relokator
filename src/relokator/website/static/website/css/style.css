@@ -363,6 +363,10 @@ a:link {
     text-align: center;
 }
 
+#advert-detail-photo{
+    margin: auto;
+}
+
 .advert-detail-location{
     width: 45%;
     display: inline-block;
@@ -376,7 +380,7 @@ a:link {
 }
 
 #advert-detail-company-image{
-    width: 30%;
+    width: 28%;
     display: inline-block;
     margin: 0 2% 0 2%;
 }
@@ -447,6 +451,13 @@ a:link {
 
 }
 
+#company-inline-image{
+    width: 50%;
+    float: left;
+    margin-bottom: 2%;
+    overflow: hidden;
+    border-radius: 20px;
+}
 
 
 /* ########## BOOTSTRAP OVERRIDED ########## */
