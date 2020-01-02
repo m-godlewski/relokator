@@ -1,3 +1,11 @@
+{# function showing phone number and mail on click #}
+<script>
+    function myFunction() {
+    document.getElementById("advert-detail-contact").style.display = "none";
+    document.getElementById("advert-detail-contact-phone").style.display = "inline-block";
+}
+</script>
+
 {% extends "website/base.html" %}
 
 {% block title %}{{advert.title}}{% endblock  %}
@@ -85,7 +93,13 @@
                     <div class="advert-detail-location"><a class="btn btn-info" href="{{advert.get_update_url}}">Edytuj</a></div>
                     <div class="advert-detail-location"><a class="btn btn-danger" href="{{advert.get_delete_url}}">Usuń</a></div>
                 {% else %}
-                    <div class="advert-detail-contact"><a class="btn btn-info" href="">Skontaktuj się</a></div>
+                    <div id="advert-detail-contact"><a class="btn btn-info" onclick="myFunction()">Skontaktuj się</a></div>
+                    <div id="advert-detail-contact-phone">
+                        <a class="btn btn-info">
+                            <span class="fa fa-phone"></span> {{phone_number}} </br> 
+                            <span class="fa fa-envelope"></span> {{email}}
+                        </a>
+                    </div>
                 {% endif %}
 
             </div>

@@ -100,7 +100,12 @@ def account_companies_view(request, account_id:str):
     # getting company of account by account_id
     company = Company.objects.filter(user=user.id).first()
 
-    context = { "username": account_id, "object": company }
+    context = {
+        "username": account_id,
+        "object": company,
+        "phone_number": user.phone_number,
+        "email": user.email
+    }
     return render(request, template_name, context)
 
 

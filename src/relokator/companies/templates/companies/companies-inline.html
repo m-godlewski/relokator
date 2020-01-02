@@ -2,10 +2,10 @@
 
     <div class = "card">
 
-        <a id="advert-inline" href="{{company.get_absolute_url}}">        
+        <a id="companies-inline" href="{{company.get_absolute_url}}">        
             <div class = "card-body">
 
-                <div id="advert-inline-title">
+                <div id="companies-inline-title">
                     <!-- Title -->
                     <h4 class="card-title text-center" style=>{{company.name}}</h4>
                     <!-- Location -->
@@ -14,7 +14,7 @@
 
                 {# Logo #}
                 {% if company.logo %}
-                    <div id="company-inline-image"><img src="{{company.logo.url}}" height="300", align="right"></div>
+                    <div id="companies-inline-image"><img src="{{company.logo.url}}" height="150"></div>
                 {% endif %}
 
             </div>

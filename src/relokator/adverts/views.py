@@ -7,6 +7,7 @@ from django.db.models import Q
 from .models import Advert
 from .forms import AdvertModelForm, AdvertUpdateForm
 from companies.models import Company
+from accounts.models import Account
 
 
 # CREATE
@@ -58,7 +59,16 @@ def advert_detail_view(request, advert_id:str):
     # get comapnies in advert.city
     companies = Company.objects.filter(Q(location=advert.city))
 
-    context = {"advert": advert, "companies": companies}
+    # get user phone number and email by advert id
+    user = Account.objects.get(username=str(advert.user))
+
+
+    context = {
+        "advert": advert,
+        "companies": companies,
+        "phone_number": user.phone_number,
+        "email": user.email,
+    }
     return render(request, template_name, context)
 
 

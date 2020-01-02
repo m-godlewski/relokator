@@ -4,11 +4,11 @@
 
 {% block content %}
     
-    <div class="col-12 col-md-10 mx-auto">
+    <div id="companies-info-card" class="col-12 col-md-6 mx-auto">
 
-        <div class="card text-center" style="margin:5%;">
+        <div class="card text-center">
 
-            <div class="card-body">
+            <div class="card-body"> 
 
                 {# company.name #}
                 <h2 id="advert-detail-title" class="card-title">{{company.name}}</h3>
@@ -25,13 +25,30 @@
                     </center>
                 {% endif %}
 
+                <hr>
+
                 {# company.tariff #}
+                <h4 class="card-subtitle mb-2 text-bold text-left px-3">Cennik</h4>
                 {% if company.tariff %}
                     <center>
                     <div id="company-info-div-image-tariff">
                         <img src="{{company.tariff.url}}" class="card-img-top">
                     </div>
                     </center>
+                {% else %}
+                    <center>Brak</center>
+                {% endif %}
+
+                <hr>
+
+                {# owner phone number #}
+                <h4 class="card-subtitle mb-2 text-bold text-left px-3">Kontakt</h4>
+                {% if phone_number %}
+                    <h5>
+                        <span class="fa fa-phone"></span> {{phone_number}}
+                        &nbsp; &nbsp; &nbsp;
+                        <span class="fa fa-envelope"></span> {{email}}
+                    </h5>
                 {% endif %}
 
                 {# manage company button #}

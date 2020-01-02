@@ -267,6 +267,7 @@ a:link {
 }
 
 #advert-form-card-title{
+    color: #007bff;
     margin: auto;
     margin-top: 2%;
     margin-bottom: 8%;
@@ -373,10 +374,19 @@ a:link {
     text-align: center;
 }
 
-.advert-detail-contact{
+#advert-detail-contact{
+    width: 100%;
+    text-align: center;
+    color: white;
+    display: inline-block;
+}
+
+#advert-detail-contact-phone{
     width: 100%;
     display: inline-block;
     text-align: center;
+    color: white;
+    display: none;
 }
 
 #advert-detail-company-image{
@@ -388,6 +398,8 @@ a:link {
 #google-maps-frame{
     width: 100%;
     margin-top: 2%;
+    border-style: solid;
+    border-color: black;
 }
 
 
@@ -440,24 +452,43 @@ a:link {
 
 /* ########## COMPANIES ########## */
 
+#companies-info-card{
+    padding-top: 4%;
+    padding-bottom: 4%;
+}
+
 #company-info-div-image{
     width: 30%;
-    margin: 2% 0 2% 0;
+    margin: 5% 0 5% 0;
 }
 
 #company-info-div-image-tariff{
     width: 70%;
     margin: 2% 0 2% 0;
-
 }
 
-#company-inline-image{
-    width: 50%;
-    float: left;
-    margin-bottom: 2%;
-    overflow: hidden;
-    border-radius: 20px;
+
+/* COMPANIES DIVS */
+
+#companies-inline{
+    color:black;
 }
+
+#companies-inline:hover{
+    text-decoration: none;
+}
+
+#companies-inline-title{
+    color: #007bff;
+}
+
+#companies-inline-image{
+    display: table;
+    margin: auto;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
 
 
 /* ########## BOOTSTRAP OVERRIDED ########## */

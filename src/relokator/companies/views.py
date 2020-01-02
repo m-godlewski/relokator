@@ -4,6 +4,7 @@ from django.db.models import Q
 
 from .models import Company
 from .forms import CompanyModelForm
+from accounts.models import Account
 
 
 # CREATE
@@ -52,7 +53,15 @@ def company_detail_view(request, company_id:str):
     # getting company by company_id
     company = get_object_or_404(Company, id=company_id)
 
-    context = {"title": company.name, "company": company}
+    # getting contact to company owner
+    owner = Account.objects.get(username=str(company.user))
+
+    context = {
+        "title": company.name,
+        "company": company,
+        "phone_number": owner.phone_number,
+        "email": owner.email
+    }
     return render(request, template_name, context)
 
 
