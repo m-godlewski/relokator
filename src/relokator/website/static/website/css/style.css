@@ -62,8 +62,9 @@ a:link {
 }
 
 #login-form-title{
+    color: #007bff;
     margin-top: 5%;
-    margin-bottom: 5%;
+    margin-bottom: 8%;
 }
 
 #login-form-input input[type=text]{

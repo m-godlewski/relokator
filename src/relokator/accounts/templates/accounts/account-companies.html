@@ -54,8 +54,8 @@
                 <hr>
 
                 {# Cennik firmy #}
+                <h4 class="card-subtitle mb-2 text-bold text-left px-3"><b>Cennik</b></h4>
                 {% if object.tariff %}
-                    <h4 class="card-subtitle mb-2 text-bold text-left px-3">Cennik</h4>
                     <center>
                         <div id="company-info-div-image-tariff">
                             <img src="{{object.tariff.url}}" class="card-img-top">
@@ -68,11 +68,11 @@
                 <hr>
 
                 {# owner phone number #}
-                <h4 class="card-subtitle mb-2 text-bold text-left px-3">Kontakt</h4>
+                <h4 class="card-subtitle mb-2 text-bold text-left px-3"><b>Kontakt</b></h4>
                 {% if phone_number %}
                     <h5>
                         <span class="fa fa-phone"></span> {{phone_number}}
-                        &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                         <span class="fa fa-envelope"></span> {{email}}
                     </h5>
                 {% endif %}
