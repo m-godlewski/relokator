@@ -32,3 +32,25 @@ http://www.cs.put.poznan.pl/jrojek/files/io1/requirements/Wymagania_opis.pdf
 	3.2.
 	https://mfiles.pl/pl/index.php/Nieruchomo%C5%9B%C4%87
 4.
+
+
+[1] http://madeyski.e-informatyka.pl/download/19.pdf?fbclid=IwAR2bjNyQLECgfyT5nNBd8bnD1SgiJAPvITq7SxruKEZSatQbn6FJweowthE
+[2] https://docs.microsoft.com/pl-pl/dotnet/architecture/modern-web-apps-azure/modern-web-applications-characteristics
+[3] https://pl.wikipedia.org/wiki/Python
+[4] https://instagram-engineering.com/web-service-efficiency-at-instagram-with-python-4976d078e366
+[5] https://quintagroup.com/cms/python/google
+[6] https://labs.spotify.com/2013/03/20/how-we-use-python-at-spotify/
+[7] https://medium.com/netflix-techblog/python-at-netflix-86b6028b3b3e
+[8] http://www.bagazowe.com.pl/dlaczego-ludzie-sie-przeprowadzaja
+[9] https://nieruchomosci.dziennik.pl/kupno-i-wynajem/artykuly/576246,mieszkanie-wybor-dom-nieruchomosci-pieniadze-deweloper.html
+[10] https://media.ing.pl/informacje-prasowe/926/pr/381312/kupujac-mieszkania-polacy-zwracaja-wieksza-uwage-na-okolice-niz-cene-w
+[11] https://mfiles.pl/pl/index.php/Nieruchomo%C5%9B%C4%87
+[12] https://pl.wikipedia.org/wiki/Umowa_najmu
+[13] https://pl.wikipedia.org/wiki/Nieruchomo%C5%9B%C4%87
+[14] https://blog.express-przeprowadzki.pl/7-cech-ktorymi-powinna-cechowac-sie-profesjonalna-firma-przeprowadzkowa/
+[15] https://pl.wikipedia.org/wiki/OLX
+[16] https://pl.wikipedia.org/wiki/Otodom
+[17]
+[18]
+[19]
+[20]
