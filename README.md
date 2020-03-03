@@ -1,6 +1,11 @@
-# relokator - v0.8.0
+# relokator - v1.0.0
 
 ## Release notes
+
+#### v1.0.0
+- many fixes
+- stability
+
 #### v0.8.0
 - minor fixes
 - ui fixes
