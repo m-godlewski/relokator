@@ -22,3 +22,4 @@ $ cd ./src/relokator
 $ pip install requirements.txt
 $ python manage.py runserver
 ```
+To use Google Maps API in search engine, replace value in variable *GOOGLE_API_KEY* in core/settings.py to your personal Google Map API key!
