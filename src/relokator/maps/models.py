@@ -1,4 +1,5 @@
 import requests, logging
+from core import settings
 from django.db import models
 from typing import Iterable
 
@@ -73,7 +74,7 @@ class GoogleMaps(object):
                     # preprocessing adress
                     'address': self.preprocess_address(city, address), 
                     # api key # TODO storing in DB for security!
-                    'key': 'AIzaSyC5rVKcoTfCep0GE7wnJc56P0ZfNbuLto8'
+                    'key': settings.GOOGLE_API_KEY
                 }
             )
 
@@ -115,7 +116,7 @@ class GoogleMaps(object):
                         'location': f'{advert.map_coord_y},{advert.map_coord_x}',
                         'type': object_type,
                         'radius': radius,
-                        'key': 'AIzaSyC5rVKcoTfCep0GE7wnJc56P0ZfNbuLto8'
+                        'key': settings.GOOGLE_API_KEY
                     }
                 )
 

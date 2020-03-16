@@ -115,3 +115,6 @@ MEDIA_URL = "/media/"
 logging.basicConfig(
     level=logging.DEBUG, format="%(levelname)s %(message)s",
 )
+
+# Google Maps API key
+GOOGLE_API_KEY = 'REPLACE_WITH_YOUR_KEY'
